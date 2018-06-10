@@ -386,7 +386,7 @@ async def badnumber(ctx):
     badnumber = random.randint(0,100)
     await client.say('Your unlucky number for today is ``{0}``! Try not to use this number or you will face the consequences...'.format(badnumber))
 
-client.run("MzgzOTYzNzE3NjM4ODE1NzQ0.DTr8Rw.75EW4_rvO0GVsSbxWXyF9DSjLfQ")
+client.run(str(os.environ.get('BOT_TOKEN')))
 
 
 
