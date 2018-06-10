@@ -1,0 +1,14 @@
+Scientist
+Worker
+President
+Troll
+Soldier
+Chef
+Coder
+Doctor
+Surgeon
+Hacker
+Animator
+Actor
+Youtuber
+Artist
