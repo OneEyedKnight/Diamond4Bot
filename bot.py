@@ -1,4 +1,7 @@
 import discord
+import asyncio
+import requests
+import os
 from discord.ext.commands import Bot
 from discord.ext import commands
 import random
