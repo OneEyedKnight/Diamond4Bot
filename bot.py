@@ -388,5 +388,5 @@ async def badnumber(ctx):
 
 client.run("MzgzOTYzNzE3NjM4ODE1NzQ0.DTr8Rw.75EW4_rvO0GVsSbxWXyF9DSjLfQ")
 
-):
+
 
