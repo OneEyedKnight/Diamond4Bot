@@ -17,7 +17,14 @@ async def on_ready():
     print("Name: (Diamond4Bot)".format(client.user.name))
     print("ID: ()".format(client.user,id))
     await client.change_presence(game=discord.Game(name='type !!help'))
-       
+     
+ async def on_message(self, message):
+        if message.author.id == self.user.id:
+            return
+
+        if message.content.startswith('!hello'):
+            await message.channel.send('Hello {0.author.mention}'.format(message))
+            
 @client.command(pass_context=True)
 async def suggest(ctx,*, string):
     suggest = open("suggestions.txt", "a")
