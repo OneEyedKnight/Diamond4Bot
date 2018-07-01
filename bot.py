@@ -101,7 +101,7 @@ async def job(ctx):
 async def moti(ctx): 
     moti = open('moti.txt').read().splitlines()
     motivation = random.choice(moti)
-    embed = discord.Embed(title="%s", description='%s'(ctx.message.author.mention, motivation)
+    embed = discord.Embed(title="{}", description='{}'(ctx.message.author.mention, motivation)
     embed.set_image(url="https://cdn.discordapp.com/attachments/385416830229151746/462809050053345322/images.jpg")
     await client.say(embed=embed)
                     
