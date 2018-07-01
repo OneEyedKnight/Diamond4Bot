@@ -1,0 +1,22 @@
+howIkms = basically how you killed yourself.
+amIgay = see if you're gay or not.
+wyr = Would You Rather. See if you want Option 1 or Option 2.
+wyr add = add your own Would You Rather.
+yon = Yes or No. See if you want the option or not.
+yon add = Add your own Yes or No.
+power = See what kind of power you have.
+waud = What Are U Doing = See what others are doing currently...
+moti = See motivational messages to brighten up your life.
+chance = Do !!chance (ask) and see what happens. Almost similar to the famous 8 Ball.
+ask = Do !!ask (question) and see which lucky/unlucky person is it.
+future = See your own future.
+number = See today's lucky number.
+badnumber = See today's unlucky number.
+love = See who loves who.
+job = See what kind of job you currently have/want to have.
+game = See what kind of game you are playing.
+kill = See who's the murder, who's the victim, and see how the murderer kills the victim.
+flip = Flip the coin. WHERE DOES IT LAND?!
+ping = Ping the bot!
+logs = See the recent logs.
+suggest = Suggest Diamond4luck a command!
