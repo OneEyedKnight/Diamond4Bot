@@ -17,13 +17,6 @@ async def on_ready():
     print("Name: (Diamond4Bot)".format(client.user.name))
     print("ID: ()".format(client.user,id))
     await client.change_presence(game=discord.Game(name='type !!help')
-            
-@client.command(pass_context=True)
-async def suggest(ctx,*, string):
-    suggest = open("suggestions.txt", "a")
-    suggest.write("\n{}".format(string))
-    suggest.close()
-    await client.say("Added! The suggestion will be reviewed soon...")
     
 @client.command(pass_context = True)
 @commands.cooldown(1, 30, commands.BucketType.user)
@@ -31,6 +24,13 @@ async def test(ctx):
     await client.say("Cooldown in next time")
     await client.purge_from(ctx.message.channel, limit=2)
     await client.say("Cooldown is on the way!")
+                                 
+@client.command(pass_context=True)
+async def suggest(ctx,*, string):
+    suggest = open("suggestions.txt", "a")
+    suggest.write("\n{}".format(string))
+    suggest.close()
+    await client.say("Added! The suggestion will be reviewed soon...")                                
 
 @client.command(pass_context=True)
 async def power(ctx):
