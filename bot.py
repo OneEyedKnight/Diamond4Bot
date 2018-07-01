@@ -104,6 +104,14 @@ async def moti(ctx):
     embed = discord.Embed(title='Motivational Message for You!', description = '{}'.format(motivation2))
     embed.set_image(url="https://cdn.discordapp.com/attachments/385416830229151746/462809050053345322/images.jpg")
     await client.say(embed=embed)
+    
+@client.command(pass_context=True)
+async def reco(ctx):
+    recommended = open('moti2.txt', encoding = "UTF-8).read().splitlines()
+    recommended2 = random.choice(recommended)
+    embed = discord.Embed(title='I recommend you to try out this command...', description = '{}'.format(recommended2))
+    embed.set_image(url="https://cdn.discordapp.com/attachments/385419071727992834/462927747149463573/download.jpg")
+    await client.say(embed=embed)                       
 
 @client.command(pass_context=True)
 async def embed(ctx):
