@@ -103,7 +103,7 @@ async def moti(ctx):
     motivation = random.choice(moti)
     embed = discord.Embed(title="%s", description='%s'(ctx.message.author.mention, motivation)
     embed.set_image(url='https://cdn.discordapp.com/attachments/385416830229151746/462809050053345322/images.jpg)
-    await clinet.say(embed=embed)
+    await client.say(embed=embed)
                     
 @client.command(pass_context=True)
 async def love(ctx):
