@@ -29,6 +29,15 @@ async def suggest(ctx,*, string):
     suggest.write("\n{}".format(string))
     suggest.close()
     await client.say("Added! The suggestion will be reviewed soon...")
+    
+@client.command(pass_context = True)
+@commands.cooldown(1, 30, commands.BucketType.user)
+async def getalt(ctx):
+    msg = ("ok")
+    await client.send_message(ctx.message.author, random.choice(msg))
+    await client.send_message(ctx.message.channel, "Alt Has Been Seen To Your DMs")
+    await client.purge_from(ctx.message.channel, limit=2)
+    await client.send_message(ctx.message.author, "Please Wait 30 Seconds Before Using This Command Again.")
 
 @client.command(pass_context=True)
 async def power(ctx):
