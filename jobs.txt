@@ -12,3 +12,12 @@ Animator
 Actor
 Youtuber
 Artist
+Farmer
+Pilot
+Prison Guard
+Terroist (the weak ones, so weak that they used toy weapons to raid xD)
+Teacher
+Principal
+Game Developer
+Application Developer
+Beggar
