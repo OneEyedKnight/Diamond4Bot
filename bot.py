@@ -110,6 +110,13 @@ async def job(ctx):
         await client.say("<@!206027308149112832> you work as a: Chef")
     else:
         await client.say('%s you work as a: %s' % (ctx.message.author.mention, jobs))
+        
+@client.command(pass_context=True)
+async def moti(ctx):
+    motiavtion = open('moti.txt').read().splitlines()
+    moti = random.choice(motivation)
+    if ctx.message.author.id == "206027308149112832":
+        await client.say('%s, %s' % (ctx.message.author.mention, moti))
 
 @client.command(pass_context=True)
 async def love(ctx):
