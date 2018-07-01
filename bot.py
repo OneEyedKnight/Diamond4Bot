@@ -109,7 +109,7 @@ async def moti(ctx):
 async def reco(ctx):
     recommended = open('moti2.txt', encoding = "UTF-8).read().splitlines()
     recommended2 = random.choice(recommended)
-    embed = discord.Embed(title='I recommend you to try out this command...', description = '{}'.format(recommended2))
+    embed = discord.Embed(title='I recommend you to try out this command...', description = '**{}**'.format(recommended2))
     embed.set_image(url="https://cdn.discordapp.com/attachments/385419071727992834/462927747149463573/download.jpg")
     await client.say(embed=embed)                       
 
