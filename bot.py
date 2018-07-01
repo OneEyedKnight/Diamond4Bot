@@ -17,6 +17,11 @@ async def on_ready():
     print("Name: (Diamond4Bot)".format(client.user.name))
     print("ID: ()".format(client.user,id))
     await client.change_presence(game=discord.Game(name='type !!help'))
+    
+@client.command(pass_context=True)
+@commands.cooldown(1, 3, commands.BucketType.channel)
+async def test(ctx):
+    await client.say("Cooldown later on!")
             
 @client.command(pass_context=True)
 async def suggest(ctx,*, string):
