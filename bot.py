@@ -102,7 +102,7 @@ async def moti(ctx):
     moti = open('moti.txt').read().splitlines()
     motivation = random.choice(moti)
     embed = discord.Embed(title="%s", description='%s'(ctx.message.author.mention, motivation)
-    embed.set_image(url='https://cdn.discordapp.com/attachments/385416830229151746/462809050053345322/images.jpg')
+    embed.set_image(url="https://cdn.discordapp.com/attachments/385416830229151746/462809050053345322/images.jpg")
     await client.say(embed=embed)
                     
 @client.command(pass_context=True)
@@ -110,13 +110,13 @@ async def love(ctx):
     love = random.choice([x for x in ctx.message.server.members if not x.bot])
     love2 = random.choice([x for x in ctx.message.server.members if not x.bot])
     embed = discord.Embed(title="Two humans in love", description = '**{}** is in love with **{}**!'.format(love.display_name, love2.display_name),color=0xE90FF)
-    embed.set_image(url='https://cdn.discordapp.com/attachments/385419071727992834/395219142325698562/love.jpg')
+    embed.set_image(url="https://cdn.discordapp.com/attachments/385419071727992834/395219142325698562/love.jpg")
     await client.say(embed=embed)
 
 @client.command(pass_context=True)
 async def embed(ctx):
     embed = discord.Embed(title='EMBED PLZ WORK', description='PLEASE MAKE THIS WORK')
-    embed.set_image(url='https://cdn.discordapp.com/attachments/385419071727992834/393317821381345280/Wrong.png')
+    embed.set_image(url="https://cdn.discordapp.com/attachments/385419071727992834/393317821381345280/Wrong.png")
     await client.say(embed=embed)
 
 @client.command(pass_context=True)
