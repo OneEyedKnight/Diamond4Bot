@@ -17,6 +17,10 @@ async def on_ready():
     print("Name: (Diamond4Bot)".format(client.user.name))
     print("ID: ()".format(client.user,id))
     await client.change_presence(game=discord.Game(name='type !!help'))
+    
+@client.command(pass=context=True)
+async def test(ctx):
+    await client.say("It works!")
 
        
 @client.command(pass_context=True)
