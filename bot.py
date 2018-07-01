@@ -101,7 +101,7 @@ async def job(ctx):
 async def moti(ctx):
     motivation = open('moti2.txt', encoding = "UTF-8").read().splitlines()
     motivation2 = random.choice(motivation)
-    embed = discord.Embed(title='Motivational Message for You!', description = '{}'.format(motivation))
+    embed = discord.Embed(title='Motivational Message for You!', description = '{}'.format(motivation2))
     await client.say(embed=embed)
 
 @client.command(pass_context=True)
