@@ -19,7 +19,7 @@ async def on_ready():
     await client.change_presence(game=discord.Game(name='type !!help')
     
 @client.command(pass_context = True)
-@commands.cooldown(1, 30, commands.BucketType.user)
+@commands.cooldown(1, 30, commands.server.user)
 async def test(ctx):
     await client.say("Cooldown in next time")
     await client.purge_from(ctx.message.channel, limit=2)
