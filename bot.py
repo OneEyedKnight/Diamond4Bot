@@ -104,13 +104,12 @@ async def moti(ctx):
     embed = discord.Embed(title="Motivational Message For You:", description='{}'.format(motivation))
     embed.set_image(url="https://cdn.discordapp.com/attachments/385416830229151746/462809050053345322/images.jpg")
     await client.say(embed=embed)
-                    
-@client.command(pass_context=True)
-async def love(ctx):
-    love = random.choice([x for x in ctx.message.server.members if not x.bot])
-    love2 = random.choice([x for x in ctx.message.server.members if not x.bot])
-    embed = discord.Embed(title="Two humans in love", description = '**{}** is in love with **{}**!'.format(love.display_name, love2.display_name),color=0xE90FF)
-    embed.set_image(url="https://cdn.discordapp.com/attachments/385419071727992834/395219142325698562/love.jpg")
+    
+@client.command(pass_context=True)                    
+async def moti(ctx):
+    motivation = open('moti.txt').read().splitlines()
+    motivation2 = random.choice(motivation)
+    embed = discord.Embed(title='Motivational Message for You!', description = '{}'.format(motivation))
     await client.say(embed=embed)
 
 @client.command(pass_context=True)
