@@ -16,14 +16,7 @@ async def on_ready():
     print("Bot Online")
     print("Name: (Diamond4Bot)".format(client.user.name))
     print("ID: ()".format(client.user,id))
-    await client.change_presence(game=discord.Game(name='type !!help')
-                                 
-@client.command(pass_context=True)
-async def suggest(ctx,*, string):
-    suggest = open("suggestions.txt", "a")
-    suggest.write("\n{}".format(string))
-    suggest.close()
-    await client.say("Added! The suggestion will be reviewed soon...")                                
+    await client.change_presence(game=discord.Game(name='type !!help)                              
 
 @client.command(pass_context=True)
 async def power(ctx):
