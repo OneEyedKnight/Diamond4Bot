@@ -16,12 +16,7 @@ async def on_ready():
     print("Bot Online")
     print("Name: (Diamond4Bot)".format(client.user.name))
     print("ID: ()".format(client.user,id))
-    await client.change_presence(game=discord.Game(name='type !!help'))
-    
-@client.command(pass_context=True)
-@commands.cooldown(1, 3, commands.BucketType.channel)
-async def test(ctx):
-    await client.say("Cooldown later on!")
+    await client.change_presence(game=discord.Game(name='type !!help')
             
 @client.command(pass_context=True)
 async def suggest(ctx,*, string):
@@ -32,12 +27,10 @@ async def suggest(ctx,*, string):
     
 @client.command(pass_context = True)
 @commands.cooldown(1, 30, commands.BucketType.user)
-async def getalt(ctx):
-    msg = ("ok")
-    await client.send_message(ctx.message.author, random.choice(msg))
-    await client.send_message(ctx.message.channel, "Alt Has Been Seen To Your DMs")
+async def test(ctx):
+    await client.say("Cooldown in next time")
     await client.purge_from(ctx.message.channel, limit=2)
-    await client.send_message(ctx.message.author, "Please Wait 30 Seconds Before Using This Command Again.")
+    await client.say("Cooldown is on the way!")
 
 @client.command(pass_context=True)
 async def power(ctx):
