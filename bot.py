@@ -136,8 +136,8 @@ async def amIgay(ctx):
 @client.command(pass_context=True)
 async def help(ctx):
     embed = discord.Embed(title="Every command in one place!",color=0xE90FF)
-    embed.add_field(name="Games!", value="``howIkms``,``amIgay``,``wyr``,``wyr add``,``yon``,``yon add``")
-    embed.add_field(name="Real Life Related! _not real_",value="``waud`` ``chance``,``ask``,``future``,``number``,``badnumber``,``love``,``job``,``game``,``kill``,``flip``")
+    embed.add_field(name="Games!", value="``howIkms``,``amIgay``,``wyr``,``wyr add``,``yon``,``yon add`` ``power``")
+    embed.add_field(name="Real Life Related! _not real_",value="``waud`` ``moti`` ``chance``,``ask``,``future``,``number``,``badnumber``,``love``,``job``,``game``,``kill``,``flip``")
     embed.add_field(name="Bot Stuff!", value="``ping``,``logs``,``suggest``")
     await client.say(embed=embed)
     
