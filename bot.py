@@ -105,12 +105,13 @@ async def job(ctx):
         await client.say('%s you work as a: %s' % (ctx.message.author.mention, jobs))
         
 @client.command(pass_context=True)
-async def moti(ctx):
-    motiavtion = open('moti.txt').read().splitlines()
-    moti = random.choice(motivation)
-    if ctx.message.author.id == "206027308149112832":
-        await client.say('%s, %s' % (ctx.message.author.mention, moti))
-
+async def moti(ctx): 
+    moti = open('moti.txt').read().splitlines()
+    motivation = random.choice(moti)
+    embed = discord.Embed(title="%s", description='%s'(ctx.message.author.mention, motivation)
+    embed.set_image(url='https://cdn.discordapp.com/attachments/385416830229151746/462809050053345322/images.jpg)
+    await clinet.say(embed=embed)
+                    
 @client.command(pass_context=True)
 async def love(ctx):
     love = random.choice([x for x in ctx.message.server.members if not x.bot])
