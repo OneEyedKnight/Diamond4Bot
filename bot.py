@@ -110,108 +110,24 @@ async def listban(ctx):
     embed = discord.Embed(title = "List of The Banned Idiots", description = x, color = 0xFFFFF)
     return await client.say(embed = embed) 
 
-@client.command(pass_context=True)       
-async def clear(ctx, number):
-    '''Clears The Chat 2-100'''
-    user_roles = [r.name.lower() for r in ctx.message.author.roles]
-
-    if "admin" not in user_roles:
-        return await client.say("You do not have the role: Admin")
-    pass
-    mgs = []
-    number = int(number)
-    async for x in client.logs_from(ctx.message.channel, limit = number):
-        mgs.append(x)
-    await client.delete_messages(mgs)
-
-@client.command()
-async def warn(user="", reason="", mod="", n="", channel=""):
-    """Warns a Member"""
-    user_roles = [r.name.lower() for r in ctx.message.author.roles]
-
-    if "admin" not in user_roles:
-        return await client.say("You do not have the role: Admin")
-    pass
-
-    if user == "":
-        await client.say(":x: No user Mentioned")
-    if reason == "":
-        await client.say(":x: No reason entered!")
-    if mod == "":
-        await client.say(":x: No Mod is Selected!")
-    if n == "":
-        await client.say(":x: No Warn Number was selected")
-    if channel == "":
-        await client.say(":x: No Channel entered!")
-    channel = client.get_channel(channel)
-    em = discord.Embed(color=0x42fc07)
-    em.add_field(name='Warning', value=("You Have Been Warned -->"))
-    em.add_field(name='User', value=(user))
-    em.add_field(name='Reason', value=(reason))
-    em.add_field(name='Moderator', value=(mod))
-    em.set_footer(text="Warnings had : {}".format(n))
-    await client.send_message(channel, embed=em)  
-    
-@client.command(pass_context = True)
-async def banhammer(ctx, member : discord.Member = None, days = " ", reason = " "):
-    """Bans specified member from the server."""
-    user_roles = [r.name.lower() for r in ctx.message.author.roles]
-
-    if "admin" not in user_roles:
-        return await client.say("You do not have the role: Admin")
-    pass
-
+@client.command(pass_context=True, aliases=['remove', 'delete'])
+async def purge(ctx, number):
+    """Bulk-deletes messages from the channel."""
     try:
-        if member == None:
-            await client.say(ctx.message.author.mention + ", please specify a member to ban.")
-            return
-
-        if member.id == ctx.message.author.id:
-            await client.say(ctx.message.author.mention + ", you cannot ban yourself.")
-            return
+        if ctx.message.author.server_permissions.administrator:
+            mgs = []  # Empty list to put all the messages in the log
+            # Converting the amount of messages to delete to an integer
+            number = int(number)
+            async for x in client.logs_from(ctx.message.channel, limit=number):
+                mgs.append(x)
+            await client.delete_messages(mgs)
+            print("Purged {} messages.".format(number))
+            logger.info("Purged {} messages.".format(number))
         else:
-            await client.ban(member, days)
-            if reason == ".":
-                await client.say(member.mention + " has been banned from the server.")
-            else:
-                await client.say(member.mention + " has been banned from the server. Reason: " + reason + ".")
-            return
-    except Forbidden:
-        await client.say("You do not have the necessary permissions to ban someone.")
-        return
-    except HTTPException:
-        await client.say("Something went wrong, please try again.")
- 
-@client.command(pass_context = True)
-async def mute(ctx, *, member : discord.Member):
-    '''Mutes A Memeber'''
-    user_roles = [r.name.lower() for r in ctx.message.author.roles]
+            await client.say(config.err_mesg_permission)
+    except:
+        await client.say(config.err_mesg)
 
-    if "admin" not in user_roles:
-        return await client.say("You do not have the role: Admin")
-    pass
-
-    overwrite = discord.PermissionOverwrite()
-    overwrite.send_messages = False
-    await client.edit_channel_permissions(ctx.message.channel, member, overwrite)
-
-    await client.say("**%s** is now Muted! Wait For an Unmute.."%member.mention)
-    
-@client.command(pass_context = True)
-async def unmute(ctx, *, member : discord.Member):
-    '''Unmutes The Muted Memeber'''
-    user_roles = [r.name.lower() for r in ctx.message.author.roles]
-
-    if "admin" not in user_roles:
-        return await client.say("You do not have the role: Admin")
-    pass
-
-    overwrite = discord.PermissionOverwrite()
-    overwrite.send_messages = True
-    await client.edit_channel_permissions(ctx.message.channel, member, overwrite)
-
-    await client.say("**%s** Times up...You are Unmuted!"%member.mention)
-    
 @client.command(pass_context=True)                    
 async def moti(ctx):
     motivation = open('moti2.txt', encoding = "UTF-8").read().splitlines()
