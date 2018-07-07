@@ -78,6 +78,11 @@ async def kill(ctx):
     killer = random.choice([x for x in ctx.message.server.members if not x.bot])
     embed = discord.Embed(title='A crime has been commited!', description = '{} killed {} {}!'.format(victim.display_name, killer.display_name, death))
     await client.say(embed=embed)
+    
+@client.command(pass_context=True)
+async def kick(ctx, user: discord.Member):
+    await client.say("Here's the boot. :boot: Bye bye, {}!".format(user.name))
+    await client.kick(user)
 
 @client.command(pass_context=True)
 async def game(ctx):
