@@ -55,17 +55,7 @@ async def on_message(message):
         await client.send_message(message.channel, 'oi wanna fight')
         greet3 = await client.wait_for_message(author=message.author, content='ok m8 lets go')
         await client.send_message(message.channel, 'ok lets dance u fat boi')
-        await client.send_message(message.channel, 'what are u gonna start off with')
-    if await client.wait_for_message(author, content='Kick')
-        await client.send_message(message.channel, random.choice(['Oof. You got a good one.','Ha, you missed.']))
-        await client.send_message(message.channel, 'Landed a kick! Feel the wound!')
-    if await client.wait_for_message(author=message.author, content='Punch')
-        await client.send_message(message.channel, random.choice(['Oof. Nice punch.', 'Ha, you missed.']))
-        await client.send_message(message.channel, 'Hiargh! Crap! I missed...')
-        return
-
-    hmm = random.choice(["Ok dud, I'm gonna leave u now.","Like my skills? Next time, don't mess me, or u are done for."])
-    await client.say(hmm)
+        await client.send_message(message.channel, 'what are u gonna start off with'
 
 @client.command(pass_context=True)
 async def love(ctx):
