@@ -40,7 +40,18 @@ async def logs(ctx):
     embed.add_field(name="New Command!",value="Do !!changelog to see all the changes made to this bot! Added in 13/1/2018.")
     embed.add_field(name="New Command!",value="Do !!wyr to play a game of Would You Rather! Do !!wyr add (line) to add your own Would You Rather! Added in 8/1/2018.")
     await client.say(embed=embed)
-    
+ 
+@client.event
+async def on_message(message):
+    if message.content.startswith('$start'):
+        await client.send_message(message.channel, 'Type $stop 4 times.')
+        for i in range(4):
+            msg = await client.wait_for_message(author=message.author, content='$stop')
+            fmt = '{} left to go...'
+            await client.send_message(message.channel, fmt.format(3 - i))
+
+     await client.send_message(message.channel, 'Good job!')
+
 @client.command(pass_context=True)
 async def love(ctx):
     love = random.choice([x for x in ctx.message.server.members if not x.bot])
