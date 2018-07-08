@@ -44,7 +44,7 @@ async def logs(ctx):
 @client.command(pass_context=True)
 async def testing(ctx):
     await client.say("Alrighty, say test.")
-    await client.wait_for_message(author=message.author, content='hello')
+    await client.wait_for_message(ctx.message.author, content='hello')
     await client.say("Nice!")
 
 @client.command(pass_context=True)
