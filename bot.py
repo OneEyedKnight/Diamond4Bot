@@ -30,7 +30,8 @@ async def power(ctx):
 @client.command(pass_context=True)
 async def logs(ctx):
     embed = discord.Embed(title="All the changelogs here!", color=0xE90FF)
-    embed.add_field(name="New Command!", value="Do !!hero to see other's secret hero skills! Added in 16/3/2018.")
+    embed.add_field(name="Updated Command!", value="Updated the !!waud command. It should be more understandable now.")
+    embed.add_field(name="New Command!", value="Do !!power to see your secret power! Added in 25/6/2018.")
     embed.add_field(name="New Command!", value="Do !!waud to see what other memebrs are doing. Added in 26/2/2018.")
     embed.add_field(name="Minor Update!", value="Every embed should have colours now! Updated in 13/1/2018.")
     embed.add_field(name="Updated Command!", value="Updated the !!help command. This time, it's an embed! Updated in 13/1/2018.")
@@ -127,6 +128,16 @@ async def purge(ctx, number):
             await client.say(config.err_mesg_permission)
     except:
         await client.say(config.err_mesg)
+        
+@client.command(pass_context=True)
+async def roles(context):
+    """Lists the current roles on the server."""
+
+    roles = context.message.server.roles
+    result = "**The roles on this server are: **"
+    for role in roles:
+        result += role.name + ", "
+    await client.say(result)
 
 @client.command(pass_context=True)                    
 async def moti(ctx):
@@ -154,9 +165,9 @@ async def embed(ctx):
 async def waud(ctx):
     waud = open('WAUD.txt').read().splitlines()
     wauds = random.choice(waud)
-    waudper = random.randint(0, 100)
+    wauddo = random.choice(["You are doing it right now!","You are not doing it right now, but later.","You are not doing it right now.","You don't do it at all."])
     waudhum = random.choice([x for x in ctx.message.server.members if not x.bot])
-    await client.say(' {}, you are {}. If I had to guess, the chance of you doing that right now is {}%.'.format(waudhum.display_name,wauds,waudper))
+    await client.say(' {}, you are {}. If I had to guess, {}.'.format(waudhum.display_name,wauds,wauddo))
     
 @client.command(pass_context=True)
 async def ping(ctx):
