@@ -40,6 +40,14 @@ async def logs(ctx):
     embed.add_field(name="New Command!",value="Do !!changelog to see all the changes made to this bot! Added in 13/1/2018.")
     embed.add_field(name="New Command!",value="Do !!wyr to play a game of Would You Rather! Do !!wyr add (line) to add your own Would You Rather! Added in 8/1/2018.")
     await client.say(embed=embed)
+    
+@client.command(pass_context=True)
+async def love(ctx):
+    love = random.choice([x for x in ctx.message.server.members if not x.bot])
+    love2 = random.choice([x for x in ctx.message.server.members if not x.bot])
+    embed = discord.Embed(title="Two humans in love", description = '**{}** is in love with **{}**!'.format(love.display_name, love2.display_name),color=0xE90FF)
+    embed.set_image(url='https://cdn.discordapp.com/attachments/385419071727992834/395219142325698562/love.jpg')
+    await client.say(embed=embed)
 
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
@@ -165,7 +173,7 @@ async def embed(ctx):
 async def waud(ctx):
     waud = open('WAUD.txt').read().splitlines()
     wauds = random.choice(waud)
-    wauddo = random.choice(["You are doing it right now!","You are not doing it right now, but later.","You are not doing it right now.","You don't do it at all."])
+    wauddo = random.choice(["you are doing it right now!","you are not doing it right now, but later.","you are not doing it right now.","you don't do it at all."])
     waudhum = random.choice([x for x in ctx.message.server.members if not x.bot])
     await client.say(' {}, you are {}. If I had to guess, {}.'.format(waudhum.display_name,wauds,wauddo))
     
