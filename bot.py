@@ -238,12 +238,17 @@ async def badnumber(ctx):
     await client.say('Your unlucky number for today is ``{0}``! Try not to use this number or you will face the consequences...'.format(badnumber))
 
 @client.command(pass_context=True)
-async def testing(ctx, member: discord.Member = None):
-    if member is None:
-        member = ctx.message.author
-    await client.say('Alrighty, say test.')
-    await client.wait_for_message(content='test')
-    await client.say("Nice!")
+async def test(ctx, member: discord.Member = None):
+    await client.say('Alrighty, say fight.')
+    await client.wait_for_message(content='fight')
+    await client.say('Alright, lets see... stick or stone?')
+    if client.wait_for_message(content='stick')
+        await client.say('Stick it is!')
+    alif client.wait_for_message(content='stone')
+        await client.say('Stone it is!')
+    else:
+        await client.say('Ok, lets do dis!')
+    
     
 client.run(str(os.environ.get('BOT_TOKEN')))
 
