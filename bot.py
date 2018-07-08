@@ -242,12 +242,12 @@ async def test(ctx, member: discord.Member = None):
     await client.say('Alrighty, say fight.')
     await client.wait_for_message(content='fight')
     await client.say('Alright, lets see... stick or stone?')
-    if client.wait_for_message(content='stick')
-        await client.say('Stick it is!')
-    alif client.wait_for_message(content='stone')
-        await client.say('Stone it is!')
-    else:
-        await client.say('Ok, lets do dis!')
+        if client.wait_for_message(content='stick')
+            await client.say('Stick it is!')
+        alif client.wait_for_message(content='stone')
+            await client.say('Stone it is!')
+        else:
+            await client.say('DO IT')
     
     
 client.run(str(os.environ.get('BOT_TOKEN')))
