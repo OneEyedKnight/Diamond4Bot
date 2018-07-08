@@ -40,22 +40,6 @@ async def logs(ctx):
     embed.add_field(name="New Command!",value="Do !!changelog to see all the changes made to this bot! Added in 13/1/2018.")
     embed.add_field(name="New Command!",value="Do !!wyr to play a game of Would You Rather! Do !!wyr add (line) to add your own Would You Rather! Added in 8/1/2018.")
     await client.say(embed=embed)
- 
-@client.event
-async def on_message(message):
-    if message.author ==client.user:
-        return
-
-    if message.content.startswith('!!greet'):
-        await client.send_message(message.channel, 'Hi.')
-
-        greet = await client.wait_for_message(author=message.author, content='hi')
-        await client.send_message(message.channel, 'oo someone replied')
-        greet2 = await client.wait_for_message(author=message.author, content='kill')
-        await client.send_message(message.channel, 'oi wanna fight')
-        greet3 = await client.wait_for_message(author=message.author, content='ok m8 lets go')
-        await client.send_message(message.channel, 'ok lets dance u fat boi')
-        await client.send_message(message.channel, 'what are u gonna start off with'
 
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
@@ -253,6 +237,22 @@ async def badnumber(ctx):
     badnumber = random.randint(0,100)
     await client.say('Your unlucky number for today is ``{0}``! Try not to use this number or you will face the consequences...'.format(badnumber))
 
+@client.event
+async def on_message(message):
+    if message.author ==client.user:
+        return
+
+    if message.content.startswith('!!greet'):
+        await client.send_message(message.channel, 'Hi.')
+
+        greet = await client.wait_for_message(author=message.author, content='hi')
+        await client.send_message(message.channel, 'oo someone replied')
+        greet2 = await client.wait_for_message(author=message.author, content='kill')
+        await client.send_message(message.channel, 'oi wanna fight')
+        greet3 = await client.wait_for_message(author=message.author, content='ok m8 lets go')
+        await client.send_message(message.channel, 'ok lets dance u fat boi')
+        await client.send_message(message.channel, 'what are u gonna start off with'
+    
 client.run(str(os.environ.get('BOT_TOKEN')))
 
 
