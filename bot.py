@@ -237,21 +237,13 @@ async def badnumber(ctx):
     badnumber = random.randint(0,100)
     await client.say('Your unlucky number for today is ``{0}``! Try not to use this number or you will face the consequences...'.format(badnumber))
 
-@client.event
-async def on_message(message):
-    if message.author ==client.user:
-        return
-
-    if message.content.startswith('!!greet'):
-        await client.send_message(message.channel, 'Hi.')
-
-        greet = await client.wait_for_message(author=message.author, content='hi')
-        await client.send_message(message.channel, 'oo someone replied')
-        greet2 = await client.wait_for_message(author=message.author, content='kill')
-        await client.send_message(message.channel, 'oi wanna fight')
-        greet3 = await client.wait_for_message(author=message.author, content='ok m8 lets go')
-        await client.send_message(message.channel, 'ok lets dance u fat boi')
-        await client.send_message(message.channel, 'what are u gonna start off with'
+@client.command(pass_context=True)
+async def testing(ctx, member: discord.Member = None):
+    if member is None:
+        member = ctx.message.author
+    await client.say('Alrighty, say test.')
+    await client.wait_for_message({0}, content='hello'.format(member))
+    await client.say("Nice!")
     
 client.run(str(os.environ.get('BOT_TOKEN')))
 
