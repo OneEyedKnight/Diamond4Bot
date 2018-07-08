@@ -105,14 +105,14 @@ async def job(ctx):
         
 @client.command(pass_context=True)
 async def test(ctx, member: discord.Member = None):
-    await client.say(message.channel, 'hi')
-    greet = await client.wait_for_message(author=message.author, content='hi')
-    await client.say(message.channel, 'oo someone replied')
-    greet2 = await client.wait_for_message(author=message.author, content='kill')
-    await client.say(message.channel, 'oi wanna fight')
-    greet3 = await client.wait_for_message(author=message.author, content='ok m8 lets go')
-    await client.say(message.channel, 'ok lets dance u fat boi')
-    await client.say(message.channel, 'what are u gonna start off with')
+    await client.say('hi')
+    greet = await client.wait_for_message(content='hi')
+    await client.say('oo someone replied')
+    greet2 = await client.wait_for_message(content='kill')
+    await client.say('oi wanna fight')
+    greet3 = await client.wait_for_message(content='ok m8 lets go')
+    await client.say('ok lets dance u fat boi')
+    await client.say('what are u gonna start off with')
 
     
 @client.command(pass_context = True)
