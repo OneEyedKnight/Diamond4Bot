@@ -242,7 +242,7 @@ async def testing(ctx, member: discord.Member = None):
     if member is None:
         member = ctx.message.author
     await client.say('Alrighty, say test.')
-    await client.wait_for_message({}, content='hello'.format(member))
+    await client.wait_for_message(content='test')
     await client.say("Nice!")
     
 client.run(str(os.environ.get('BOT_TOKEN')))
