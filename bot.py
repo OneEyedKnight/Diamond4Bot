@@ -105,15 +105,16 @@ async def job(ctx):
         
 @client.command(pass_context=True)
 async def test(ctx, member: discord.Member = None):
-    await client.say('Alrighty, say fight.')
-    await client.wait_for_message(content='fight')
-    await client.say('Alright, lets see... stick or stone?')
-    if client.wait_for_message(content='stick')
-        await client.say('Stick it is!')
-    alif client.wait_for_message(content='stone')
-        await client.say('Stone it is!')
+    await client.send_message(message.channel, 'hi')
+    greet = await client.wait_for_message(author=message.author, content='hi')
+    await client.send_message(message.channel, 'oo someone replied')
+    greet2 = await client.wait_for_message(author=message.author, content='kill')
+    await client.send_message(message.channel, 'oi wanna fight')
+    greet3 = await client.wait_for_message(author=message.author, content='ok m8 lets go')
+    await client.send_message(message.channel, 'ok lets dance u fat boi')
+    await client.send_message(message.channel, 'what are u gonna start off with')
 
-        
+    
 @client.command(pass_context = True)
 async def listban(ctx):
     '''Gets A List Of Users Who Are No Longer With us'''
