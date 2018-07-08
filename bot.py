@@ -46,7 +46,7 @@ async def testing(ctx, member: discord.Member = None):
      if member is None:
         member = ctx.message.author
     await client.say('Alrighty, say test.')
-    await client.wait_for_message({}, content='hello'.format(member))
+    await client.wait_for_message({0}, content='hello'.format(member))
     await client.say("Nice!")
 
 @client.command(pass_context=True)
