@@ -57,14 +57,6 @@ async def on_message(message):
         await client.send_message(message.channel, 'ok lets dance u fat boi')
         await client.send_message(message.channel, 'what are u gonna start off with'
 
-@client.command(pass_context=True)
-async def love(ctx):
-    love = random.choice([x for x in ctx.message.server.members if not x.bot])
-    love2 = random.choice([x for x in ctx.message.server.members if not x.bot])
-    embed = discord.Embed(title="Two humans in love", description = '**{}** is in love with **{}**!'.format(love.display_name, love2.display_name),color=0xE90FF)
-    embed.set_image(url='https://cdn.discordapp.com/attachments/385419071727992834/395219142325698562/love.jpg')
-    await client.say(embed=embed)
-
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
     yesornolist = open('yesorno.txt').read().splitlines()
