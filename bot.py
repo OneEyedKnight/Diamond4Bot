@@ -103,6 +103,17 @@ async def job(ctx):
     else:
         await client.say('%s you work as a: %s' % (ctx.message.author.mention, jobs))
         
+@client.command(pass_context=True)
+async def test(ctx, member: discord.Member = None):
+    await client.say('Alrighty, say fight.')
+    await client.wait_for_message(content='fight')
+    await client.say('Alright, lets see... stick or stone?')
+    if client.wait_for_message(content='stick')
+        await client.say('Stick it is!')
+    alif client.wait_for_message(content='stone')
+        await client.say('Stone it is!')
+
+        
 @client.command(pass_context = True)
 async def listban(ctx):
     '''Gets A List Of Users Who Are No Longer With us'''
@@ -236,18 +247,6 @@ async def number(ctx):
 async def badnumber(ctx):
     badnumber = random.randint(0,100)
     await client.say('Your unlucky number for today is ``{0}``! Try not to use this number or you will face the consequences...'.format(badnumber))
-
-@client.command(pass_context=True)
-async def test(ctx, member: discord.Member = None):
-    await client.say('Alrighty, say fight.')
-    await client.wait_for_message(content='fight')
-    await client.say('Alright, lets see... stick or stone?')
-        if client.wait_for_message(content='stick')
-            await client.say('Stick it is!')
-        alif client.wait_for_message(content='stone')
-            await client.say('Stone it is!')
-        else:
-            await client.say('DO IT')
     
     
 client.run(str(os.environ.get('BOT_TOKEN')))
