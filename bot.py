@@ -79,7 +79,7 @@ async def kill(ctx, target: discord.member):
         embed = discord.Embed(title='A crime has been commited!', description = '<@!206027308149112832> killed {} {}!'.format(user.name, death))
     else:
         embed = discord.Embed(title='A crime has been commited!', description = '{} killed {} {}!'.format(ctx.message.author.mention, user.name, death))
-    await client.say(embed=embed)
+    await client.say(embed=embed, user)
     
 @client.command(pass_context=True)
 async def kick(ctx, user: discord.Member):
