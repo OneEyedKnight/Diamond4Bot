@@ -72,14 +72,13 @@ async def add(ctx,*, string):
     await client.say("Added!")
     
 @client.command(pass_context=True)
-async def kill(ctx):
+async def kill(ctx, target: discord.member):
     kill = open('Deaths.txt').read().splitlines()
     death = random.choice(kill)
-    killer = random.choice([x for x in ctx.message.server.members if not x.bot])
     if ctx.message.author.id == "206027308149112832":
-        embed = discord.Embed(title='A crime has been commited!', description = '<@!206027308149112832> killed %s %s!' % (killer.display_name, death))
+        embed = discord.Embed(title='A crime has been commited!', description = '<@!206027308149112832> killed %s %s!' % (user.name, death))
     else:
-        embed = discord.Embed(title='A crime has been commited!', description = '%s killed %s %s!' % (ctx.message.author.mention, killer.display_name, death))
+        embed = discord.Embed(title='A crime has been commited!', description = '%s killed %s %s!' % (ctx.message.author.mention, user.name, death))
     await client.say(embed=embed)
     
 @client.command(pass_context=True)
