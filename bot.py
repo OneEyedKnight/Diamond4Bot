@@ -30,6 +30,8 @@ async def power(ctx):
 @client.command(pass_context=True)
 async def logs(ctx):
     embed = discord.Embed(title="All the changelogs here!", color=0xE90FF)
+    embed.add_field(name="Updated Command!", value="Updated the !!love command. Now you can see how long people had loved together.")
+    embed.add_field(name="Updated Command!", value="Updated the !!kill command. **You** can kill other people now!.")
     embed.add_field(name="Updated Command!", value="Updated the !!waud command. It should be more understandable now.")
     embed.add_field(name="New Command!", value="Do !!power to see your secret power! Added in 25/6/2018.")
     embed.add_field(name="New Command!", value="Do !!waud to see what other memebrs are doing. Added in 26/2/2018.")
@@ -37,8 +39,6 @@ async def logs(ctx):
     embed.add_field(name="Updated Command!", value="Updated the !!help command. This time, it's an embed! Updated in 13/1/2018.")
     embed.add_field(name="New Command!", value="Do !!suggest to suggest me something. Added in 13/1/2018.")
     embed.add_field(name="New Command!",value="Do !!yon to play a game of Yes or No! Added in 13/1/2018.")
-    embed.add_field(name="New Command!",value="Do !!changelog to see all the changes made to this bot! Added in 13/1/2018.")
-    embed.add_field(name="New Command!",value="Do !!wyr to play a game of Would You Rather! Do !!wyr add (line) to add your own Would You Rather! Added in 8/1/2018.")
     await client.say(embed=embed)
 
 @client.group(pass_context=True, invoke_without_command=True)
@@ -70,6 +70,17 @@ async def add(ctx,*, string):
     wyropen.write("\n{}".format(string))
     wyropen.close()
     await client.say("Added!")
+
+@client.command(pass_context=True)
+async def kill(ctx):
+    love = random.choice([x for x in ctx.message.server.members if not x.bot])
+    love2 = random.choice([x for x in ctx.message.server.members if not x.bot])  
+    years = random.randint(0, 100)
+    months = random.randint(0, 12)
+    days = random.randint(0,32)
+    embed = discord.Embed(title='A crime has been commited!', description = '{}loved {} for {} years, {} months and {} days!'.format(love, love2, years, months, days)
+    embed.set_image(url="https://cdn.discordapp.com/attachments/385419071727992834/472017700110073876/download.jpg")
+    await client.say(embed=embed)
     
 @client.command(pass_context=True)
 async def kill(ctx):
