@@ -240,7 +240,7 @@ async def pongping(ctx):
 
 @client.command(pass_context=True)
 async def pung(ctx):
-    await client.say("What do you expect me to say, huh? PINGPONGPUNGPUN?!")
+    await client.say("What do you expect me to say, huh? PINGPONGPUNGPUN?! WHAT THE HELL BRUH")
 
 @client.command(pass_context=True)
 async def ask(ctx,*, string):
