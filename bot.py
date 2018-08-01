@@ -77,9 +77,9 @@ async def kill(ctx):
     death = random.choice(kill)
     victim = random.choice([x for x in ctx.message.server.members if not x.bot])
     if ctx.message.author.id == "206027308149112832":
-        embed = discord.Embed(title='A crime has been commited!', description = '<@!206027308149112832> killed {} {}!'.format(victim, death))
+        embed = discord.Embed(title='A crime has been commited!', description = '<@!206027308149112832> killed {} {}!'.format(victim.display_name, death))
     else:
-        embed = discord.Embed(title='A crime has been commited!', description = '{} killed {} {}!'.format(ctx.message.author.mention, victim, death))
+        embed = discord.Embed(title='A crime has been commited!', description = '{} killed {} {}!'.format(ctx.message.author.mention, victim.display_name, death))
     await client.say(embed=embed)
     
 @client.command(pass_context=True)
@@ -173,7 +173,7 @@ async def love(ctx):
     years = random.randint(0, 50)
     months = random.randint(0, 12)
     days = random.randint(0,32)
-    embed = discord.Embed(title='We have found a secret couple in the server!', description = '{}loved {} for {} years, {} months and {} days!'.format(love, love2, years, months, days))
+    embed = discord.Embed(title='We have found a secret couple in the server!', description = '{}loved {} for {} years, {} months and {} days!'.format(love.display_name, love2.display_name, years, months, days))
     embed.set_image(url="https://cdn.discordapp.com/attachments/385419071727992834/472017700110073876/download.jpg")
     await client.say(embed=embed)
     
