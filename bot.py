@@ -174,7 +174,7 @@ async def love(ctx):
     months = random.randint(0, 12)
     days = random.randint(0,32)
     embed = discord.Embed(title='We have found a secret couple in the server!', description = '{}loved {} for {} years, {} months and {} days!'.format(love, love2, years, months, days))
-    embed.set_image(url=https://cdn.discordapp.com/attachments/385419071727992834/472017700110073876/download.jpg")
+    embed.set_image(url="https://cdn.discordapp.com/attachments/385419071727992834/472017700110073876/download.jpg")
     await client.say(embed=embed)
     
 @client.command(pass_context=True)
