@@ -115,10 +115,10 @@ async def test(ctx, member: discord.Member = None):
     greet3 = await client.wait_for_message(content='ok m8 lets go')
     await client.say('ok lets dance u fat boi')
     await client.say('what are u gonna start off with')
-    if client.wait_for_message(content='Punch'):
-       return await client.say('OW!!!!!')
-    elif client.wait_for_message(content='Kick'):
-       return await client.say('OWWWIEEE!!!!')
+    if message = ('kick')
+       await client.say('OW!!!!!')
+    elif message = ('punch')
+       await client.say('OWWWIEEE!!!!')
     
 
     
