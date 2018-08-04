@@ -106,7 +106,7 @@ async def job(ctx):
         await client.say('%s you work as a: %s' % (ctx.message.author.mention, jobs))
         
 @client.command(pass_context=True)
-async def test(ctx, member: discord.Member = None):
+async def test(ctx):
     await client.say('hi')
     greet = await client.wait_for_message(content='hi')
     await client.say('oo someone replied')
@@ -115,9 +115,9 @@ async def test(ctx, member: discord.Member = None):
     greet3 = await client.wait_for_message(content='ok m8 lets go')
     await client.say('ok lets dance u fat boi')
     await client.say('what are u gonna start off with')
-    if await client.wait_for_message('kick')+
+    if await client.wait_for_message('kick'):
        await client.say('OW!!!!!')
-    elif await client.wait_for_message('punch')+
+    elif await client.wait_for_message('punch'):
        await client.say('OWWWIEEE!!!!')
     
 
