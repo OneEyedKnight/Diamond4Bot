@@ -120,7 +120,7 @@ async def test(ctx):
         return msg.content.startswith('Punch') or msg.content.startswith('Kick')
         
     message = await client.wait_for_message(check=fight)
-    await client.send_message(ctx.message.channel, "your text here")
+    await client.say(ctx.message.channel, "your text here")
     
 @client.command(pass_context = True)
 async def listban(ctx):
