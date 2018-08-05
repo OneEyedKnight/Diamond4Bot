@@ -119,7 +119,7 @@ async def test(ctx):
 def check(msg):
     return message.content in ('kick', 'punch')
     
-    msg1 = await client.wait_for_message(check=check)
+    msg = await client.wait_for_message(check=check)
     await client.say("OW".format(msg1))
 
     
