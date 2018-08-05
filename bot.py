@@ -119,7 +119,7 @@ async def test(ctx):
     def fight(msg):
         return message.content.startswith('Punch') or message.content.startswith('Kick')
         
-    message = await client.wait_for_message("message", check=fight)
+    message = await client.wait_for_message(check=fight)
     await client.send_message(message.channel, "OWW")
     
 @client.command(pass_context = True)
