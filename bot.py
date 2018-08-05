@@ -116,17 +116,14 @@ async def test(ctx):
     await client.say('ok lets dance u fat boi')
     await client.say('what are u gonna start off with')
 
-      def check(msg):
+def check(msg):
     return message.content in ('kick', 'punch')
     
     msg1 = await client.wait_for_message(check=check)
-    test = message.content[len('kick'):].strip()
-    await client.say('OW'.format(test))
+    await client.say('OW'.format(msg1))
         
-
     msg2 = await client.wait_for_message(check=check)
-    test2 = message.content[len('punch'):].strip()
-    await client.say(message.channel, '{} is cool indeed'.format(test2))
+    await client.say(message.channel, 'ow'.format(msg2))
 
     
 @client.command(pass_context = True)
