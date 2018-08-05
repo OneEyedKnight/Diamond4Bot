@@ -120,10 +120,7 @@ def check(msg):
     return message.content in ('kick', 'punch')
     
     msg1 = await client.wait_for_message(check=check)
-    await client.say('OW'.format(msg1))
-        
-    msg2 = await client.wait_for_message(check=check)
-    await client.say(message.channel, 'ow'.format(msg2))
+    await client.say("OW".format(msg1))
 
     
 @client.command(pass_context = True)
