@@ -107,9 +107,6 @@ async def job(ctx):
         
 @client.command(pass_context=True)
 async def test(ctx):
-      def check(msg):
-    return message.content in ('kick', 'punch')
-
     await client.say('hi')
     greet = await client.wait_for_message(content='hi')
     await client.say('oo someone replied')
@@ -118,10 +115,15 @@ async def test(ctx):
     greet3 = await client.wait_for_message(content='ok m8 lets go')
     await client.say('ok lets dance u fat boi')
     await client.say('what are u gonna start off with')
-
-    msg = await client.wait_for_message(check=check)
-    await client.say("OW".format(msg1))
-
+ 
+    def fight(msg):
+        return message.content.startswith('Punch') or message.content.startswith('Kick')
+        
+    message = await client.wait_for_message("message", check=fight)
+    await client.send_message(message.channel, "OWW")
+        
+    if message.content == 'Kick':
+    await client.send_message(message.channel, "OOF")
     
 @client.command(pass_context = True)
 async def listban(ctx):
