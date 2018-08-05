@@ -107,6 +107,9 @@ async def job(ctx):
         
 @client.command(pass_context=True)
 async def test(ctx):
+      def check(msg):
+    return message.content in ('kick', 'punch')
+
     await client.say('hi')
     greet = await client.wait_for_message(content='hi')
     await client.say('oo someone replied')
@@ -116,9 +119,6 @@ async def test(ctx):
     await client.say('ok lets dance u fat boi')
     await client.say('what are u gonna start off with')
 
-def check(msg):
-    return message.content in ('kick', 'punch')
-    
     msg = await client.wait_for_message(check=check)
     await client.say("OW".format(msg1))
 
