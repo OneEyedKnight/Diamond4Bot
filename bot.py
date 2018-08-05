@@ -116,7 +116,7 @@ async def test(ctx):
     await client.say('ok lets dance u fat boi')
     await client.say('what are u gonna start off with')
 
-def check(msg):
+      def check(msg):
     return message.content in ('kick', 'punch')
     
     msg1 = await client.wait_for_message(check=check)
