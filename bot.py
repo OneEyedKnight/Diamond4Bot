@@ -121,9 +121,6 @@ async def test(ctx):
         
     message = await client.wait_for_message("message", check=fight)
     await client.send_message(message.channel, "OWW")
-        
-    if message.content == 'Kick':
-    await client.send_message(message.channel, "OOF")
     
 @client.command(pass_context = True)
 async def listban(ctx):
