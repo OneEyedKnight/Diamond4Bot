@@ -117,7 +117,7 @@ async def test(ctx):
     await client.say('what are u gonna start off with')
  
     def fight(msg):
-        return message.content.startswith('Punch') or message.content.startswith('Kick')
+        return msg.content.startswith('Punch') or msg.content.startswith('Kick')
         
     message = await client.wait_for_message(check=fight)
     await client.send_message(message.channel, "OWW")
