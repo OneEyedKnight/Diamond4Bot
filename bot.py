@@ -30,6 +30,7 @@ async def power(ctx):
 @client.command(pass_context=True)
 async def logs(ctx):
     embed = discord.Embed(title="All the changelogs here!", color=0xE90FF)
+    embed.add_field(name="New Command!", value="Do !!diary to see other people's hidden messages in their diaries! Added in 18/8/2018.")
     embed.add_field(name="Updated Command!", value="Updated the !!love command. Now you can see how long people had loved together.")
     embed.add_field(name="Updated Command!", value="Updated the !!kill command. **You** can kill other people now!.")
     embed.add_field(name="Updated Command!", value="Updated the !!waud command. It should be more understandable now.")
@@ -38,7 +39,6 @@ async def logs(ctx):
     embed.add_field(name="Minor Update!", value="Every embed should have colours now! Updated in 13/1/2018.")
     embed.add_field(name="Updated Command!", value="Updated the !!help command. This time, it's an embed! Updated in 13/1/2018.")
     embed.add_field(name="New Command!", value="Do !!suggest to suggest me something. Added in 13/1/2018.")
-    embed.add_field(name="New Command!",value="Do !!yon to play a game of Yes or No! Added in 13/1/2018.")
     await client.say(embed=embed)
 
 @client.group(pass_context=True, invoke_without_command=True)
@@ -93,7 +93,7 @@ async def diary(ctx):
         embed = discord.Embed(title='<@!206027308149112832> found {}"s diary!'.format(AuthorOfDiary), description = '"Dear Diary, I,{}, {}'.format(AuthorOfDiary, ContentsDiary2))
     else:
         embed = discord.Embed(title='{} found {}"s diary!'.format(ctx.message.author.mention, AuthorOfDiary), description = '"Dear Diary, I,{}, {}"'.format(AuthorOfDiary, ContentsDiary2))
-    embed.add_field(name="Written in {}.{}.2018.".format(Day, Month))
+    embed.add_field(name="Written in",value="{}.{}.2018.".format(Day, Month))
     await client.say(embed=embed)
     
     
