@@ -93,7 +93,7 @@ async def diary(ctx):
         embed = discord.Embed(title='<@!206027308149112832> found {}"s diary!'.format(AuthorOfDiary), description = '"Dear Diary, I,{}, {}'.format(AuthorOfDiary, ContentsDiary2))
     else:
         embed = discord.Embed(title='{} found {}"s diary!'.format(ctx.message.author.mention, AuthorOfDiary), description = '"Dear Diary, I,{}, {}"'.format(AuthorOfDiary, ContentsDiary2))
-    embed.add_field(value="Written in {}.{}.2018.".format(Day, Month))
+    embed.add_field(name="Written in {}.{}.2018.".format(Day, Month))
     await client.say(embed=embed)
     
     
