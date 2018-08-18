@@ -87,10 +87,13 @@ async def diary(ctx):
     ContentsDiary = open('Diary.txt').read().splitlines()
     ContentsDiary2 = random.choice(ContentsDiary)
     AuthorOfDiary = random.choice([x for x in ctx.message.server.members if not x.bot])
+    Day = random.randint(1,31)
+    Month = random.choice(["January", "February", "March","April","May","June","July","August","September","October","November","December"])
     if ctx.message.author.id == "206027308149112832":
         embed = discord.Embed(title='<@!206027308149112832> found {}"s diary!'.format(AuthorOfDiary), description = '"Dear Diary, I,{}, {}'.format(AuthorOfDiary, ContentsDiary2))
     else:
         embed = discord.Embed(title='{} found {}"s diary!'.format(ctx.message.author.mention, AuthorOfDiary), description = '"Dear Diary, I,{}, {}"'.format(AuthorOfDiary, ContentsDiary2))
+    embed.add_field(value="Written in {}.{}.2018.".format(Day, Month))
     await client.say(embed=embed)
     
     
