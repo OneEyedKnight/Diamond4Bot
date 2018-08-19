@@ -51,7 +51,7 @@ async def help(ctx):
         return e.startswith(('\U0001f1fe'))
     
     res = await client.wait_for_reaction(message=msg, check=check)
-    await client.say('D4L reacted with {\U0001f1fe}!'.format(res))
+    await client.say("D4L reacted!".format(res))
 
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
