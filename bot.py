@@ -59,7 +59,7 @@ async def add(ctx,*, string):
 @client.command(pass_context=True)
 async def help(ctx):
     helptest = client.say("Ok, react it.")
-    await client.add_reaction('\U0001f1fe')
+    await client.add_reaction(helptest,'\U0001f1fe')
     
     def check(reaction, user):
         e = str(reaction.emoji)
