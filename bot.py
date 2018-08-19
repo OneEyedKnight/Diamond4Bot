@@ -44,13 +44,13 @@ async def logs(ctx):
 @client.command(pass_context=True, invoke_without_command=True)
 async def help(ctx):
     helptest = client.say("Ok, react it.")
-    await client.add_reaction(helptest,'\U0001f1fe')
+    helptest2 = await client.add_reaction(helptest,'\U0001f1fe')
     
     def check(reaction, user):
         e = str(reaction.emoji)
         return e.startswith(('\U0001f1fe'))
     
-    res = await client.wait_for_reaction(message=helptest, check=check)
+    res = await client.wait_for_reaction(message=helptest2, check=check)
     await client.say("D4L reacted!".format(res))
 
 @client.group(pass_context=True, invoke_without_command=True)
