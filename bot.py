@@ -50,7 +50,7 @@ async def help(ctx):
         e = str(reaction.emoji)
         return e.startswith(('\U0001f1fe'))
     
-    res = await client.wait_for_reaction(message=msg, check=check)
+    res = await client.wait_for_reaction(message=helptest, check=check)
     await client.say("D4L reacted!".format(res))
 
 @client.group(pass_context=True, invoke_without_command=True)
