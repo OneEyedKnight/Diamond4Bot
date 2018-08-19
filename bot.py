@@ -91,7 +91,7 @@ async def diary(ctx):
     Month = random.choice(["January", "February", "March","April","May","June","July","August","September","October","November","December"])
     embed = discord.Embed(title='You found {}"s diary!'.format(AuthorOfDiary), description = '"Dear Diary, I,{}, {}"'.format(AuthorOfDiary, ContentsDiary2))
     embed.add_field(name="Written in",value="{}/{}/2018.".format(Day, Month))
-    embed.set_image("https://cdn.discordapp.com/attachments/347731992227610625/480550401968701440/diary.jpg")
+    embed.set_image(url="https://cdn.discordapp.com/attachments/347731992227610625/480550401968701440/diary.jpg")
     await client.say(embed=embed)
     
     
