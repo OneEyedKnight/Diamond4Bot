@@ -40,6 +40,18 @@ async def logs(ctx):
     embed.add_field(name="Updated Command!", value="Updated the !!help command. This time, it's an embed! Updated in 13/1/2018.")
     embed.add_field(name="New Command!", value="Do !!suggest to suggest me something. Added in 13/1/2018.")
     await client.say(embed=embed)
+    
+@client.command(pass_context=True, invoke_without_command=True)
+async def help(ctx):
+    helptest = client.say("Ok, react it.")
+    await client.add_reaction(helptest,'\U0001f1fe')
+    
+    def check(reaction, user):
+        e = str(reaction.emoji)
+        return e.startswith(('\U0001f1fe'))
+    
+    res = await client.wait_for_reaction(message=msg, check=check)
+    await client.say('D4L reacted with {\U0001f1fe}!'.format(res))
 
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
@@ -56,17 +68,6 @@ async def add(ctx,*, string):
     yonopen.close()
     await client.say("Added!")
     
-@client.command(pass_context=True)
-async def help(ctx):
-    helptest = client.say("Ok, react it.")
-    await client.add_reaction(helptest,'\U0001f1fe')
-    
-    def check(reaction, user):
-        e = str(reaction.emoji)
-        return e.startswith(('👍', '👎'))
-    
-    res = await client.wait_for_reaction(message=msg, check=check)
-    await client.say('D4L reacted with {\U0001f1fe}!'.format(res))
     
 @client.group(pass_context=True, invoke_without_command=True)
 async def wyr(ctx):
