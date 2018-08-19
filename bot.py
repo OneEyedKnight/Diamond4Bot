@@ -56,6 +56,18 @@ async def add(ctx,*, string):
     yonopen.close()
     await client.say("Added!")
     
+@client.command(pass_context=True)
+async def help(ctx):
+    helptest = client.say("Ok, react it.")
+    await client.add_reaction('\U0001f1fe')
+    
+    def check(reaction, user):
+        e = str(reaction.emoji)
+        return e.startswith(('👍', '👎'))
+    
+    res = await client.wait_for_reaction(message=msg, check=check)
+    await client.say('D4L reacted with {\U0001f1fe}!'.format(res))
+    
 @client.group(pass_context=True, invoke_without_command=True)
 async def wyr(ctx):
     wyrlist = open('wyr.txt').read().splitlines()
@@ -183,7 +195,7 @@ async def moti(ctx):
 async def love(ctx):
     love = random.choice([x for x in ctx.message.server.members if not x.bot])
     love2 = random.choice([x for x in ctx.message.server.members if not x.bot])  
-    years = random.randint(0, 50)
+    years = random.randint(0, 20)
     months = random.randint(0, 12)
     days = random.randint(0,32)
     embed = discord.Embed(title='We have found a secret couple in the server!', description = '{} loved {} for {} years, {} months and {} days!'.format(love.display_name, love2.display_name, years, months, days))
@@ -225,14 +237,6 @@ async def flip(ctx):
 async def amIgay(ctx):
     Areyougay = random.choice(["Maybe","YES,DUH","NOPE"])
     await client.say(Areyougay)
-
-@client.command(pass_context=True)
-async def help(ctx):
-    embed = discord.Embed(title="Every command in one place!",color=0xE90FF)
-    embed.add_field(name="Games!", value="``howIkms``,``amIgay``,``wyr``,``wyr add``,``yon``,``yon add`` ``power``")
-    embed.add_field(name="Real Life Related! _not real_",value="``waud`` ``moti`` ``chance``,``ask``,``future``,``number``,``badnumber``,``love``,``job``,``game``,``kill``,``flip``")
-    embed.add_field(name="Bot Stuff!", value="``ping``,``logs``,``suggest``")
-    await client.say(embed=embed)
     
 @client.command(pass_context=True)
 async def howIkms(ctx):
