@@ -74,7 +74,7 @@ async def help(ctx):
     embed.add_field(name="!kill", value="Randomly kill someone with something!")
     embed.add_field(name="!!game", value="See what game you like to play the most.")
     embed.add_field(name="!!power", value="See what hidden powers you have!")
-    help2 = await client.edit_message(help1,help3 embed=embed)
+    help2 = await client.edit_message(help1,help3, embed=embed)
     helpreaction3 = await client.wait_for_reaction(['3\u20e3'], message=help2,help1)
     embed3 = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
     embed.add_field(name="!!moti", value="moti stands for motivation. This command gives you a motivational message to you!")
@@ -85,7 +85,7 @@ async def help(ctx):
     embed.add_field(name="!!future", value="See your future!")
     embed.add_field(name="!!wyr", value="wyr means Would You Rather. React to the emojis if you rather do this rather than that!")
     embed.add_field(name="!!yon", value="yon means Yes or No. You would be given a question, and react if you want it or not.")
-    help3 = await client.edit_message(help2,help1 embed=embed)
+    help3 = await client.edit_message(help2,help1, embed=embed)
     
     
     
