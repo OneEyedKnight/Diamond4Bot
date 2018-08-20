@@ -46,18 +46,6 @@ async def reac(ctx):
         msg = await client.send_message(message.channel, 'React with thumbs up or thumbs down.')
         res = await client.wait_for_reaction(['👍', '👎'], message=msg)
         await client.send_message(message.channel, '{0.user} reacted with {0.reaction.emoji}!'.format(res))
-        
-@client.command(pass_context=True, invoke_without_command=True)
-async def help(ctx):
-    helptest = client.say("Ok, react it.")
-    helptest2 = await client.add_reaction(helptest,'\U0001f1fe')
-    
-    def check(reaction, user):
-        e = str(reaction.emoji)
-        return e.startswith(('\U0001f1fe'))
-    
-    res = await client.wait_for_reaction(message=helptest2, check=check)
-    await client.say("D4L reacted!".format(res))
 
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
