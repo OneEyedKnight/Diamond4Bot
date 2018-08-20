@@ -42,21 +42,12 @@ async def logs(ctx):
     await client.say(embed=embed)
     
 @client.command(pass_context=True)
-async def reaction(ctx):
-    if message.content.startswith('$thumb'):
-        channel = message.channel
-        await channel.send('Send me that 👍 reaction, mate')
-
-        def check(reaction, user):
-            return user == message.author and str(reaction.emoji) == '👍'
-
-        try:
-            reaction, user = await client.wait_for('reaction_add', timeout=60.0, check=check)
-        except asyncio.TimeoutError:
-            await channel.send('👎')
-        else:
-            await channel.send('👍')
-    
+async def reac(ctx):
+    if message.content.startswith('$react'):
+        msg = await client.send_message(message.channel, 'React with thumbs up or thumbs down.')
+        res = await client.wait_for_reaction(['👍', '👎'], message=msg)
+        await client.send_message(message.channel, '{0.user} reacted with {0.reaction.emoji}!'.format(res))
+        
 @client.command(pass_context=True, invoke_without_command=True)
 async def help(ctx):
     helptest = client.say("Ok, react it.")
