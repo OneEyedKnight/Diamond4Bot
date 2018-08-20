@@ -48,7 +48,14 @@ async def reac(ctx):
         res = await client.wait_for_reaction(['👍', '👎'], message=msgtest)
         embed2 = discord.Embed(title="Embed1", description ="embed2")
         await client.edit_message(msgtest, embed=embed2)
-   
+        
+@client.command(pass_context=True)
+async def help(ctx):
+    embed = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795."
+    embed.add_field(name="Help Page", value="Click the number reactions below to look at different types of commands!"
+    embed.add_field(name="Bot Related Commands", value="!!ping", value="!!help")
+    await client.say(embed=embed)
+
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
     yesornolist = open('yesorno.txt').read().splitlines()
