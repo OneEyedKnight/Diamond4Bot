@@ -45,7 +45,6 @@ async def logs(ctx):
 async def reac(ctx):
         embed = discord.Embed(title="Going to be edited.", description="Thumbs up to update.")
         msgtest = await client.say(embed=embed)
-        await client.add_reaction(msgtest,'👍')
         res = await client.wait_for_reaction(['👍', '👎'], message=msgtest)
         embed2 = discord.Embed(title="Embed1", description ="embed2")
         await client.edit_message(msgtest, embed=embed)
