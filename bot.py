@@ -46,7 +46,7 @@ async def reac(ctx):
         msg = await client.say("React with thumbs up or thumbs down.")
         res = await client.wait_for_reaction(['👍', '👎'], message=msg)
         msg2 = await client.say("ok see if this works.")
-        await client.edit_message(msg2, newcontent="It works!")
+        await client.edit_message(msg2, new_content="It works!")
 
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
