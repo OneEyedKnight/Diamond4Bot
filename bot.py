@@ -53,7 +53,7 @@ async def reac(ctx):
 async def help(ctx):
     embed = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
     embed.add_field(name="Help Page", value="Click the number reactions below to look at different types of commands!")
-    embed.add_field(name="Bot Related Commands", value="Mess around with the bot.)
+    embed.add_field(name="Bot Related Commands", value="Mess around with the bot.")
     embed.add_field(name="!!ping",value="Check if the bot is working or not.")
     embed.add_field(name="!!help", value="The page you are currently on.")
     help1 = await client.say(embed=embed)
