@@ -43,7 +43,6 @@ async def logs(ctx):
     
 @client.command(pass_context=True)
 async def reac(ctx):
-    if message.content.startswith('$react'):
         msg = await client.send_message(message.channel, 'React with thumbs up or thumbs down.')
         res = await client.wait_for_reaction(['👍', '👎'], message=msg)
         await client.send_message(message.channel, '{0.user} reacted with {0.reaction.emoji}!'.format(res))
