@@ -46,7 +46,7 @@ async def reac(ctx):
         embed = discord.Embed(title="Going to be edited.", description="Thumbs up to update.")
         await client.add_reaction(embed,'👍')
         res = await client.wait_for_reaction(['👍', '👎'], message=embed)
-        msg2 = await client.say("ok see if this works.")
+        msg2 = discord.embed(title="It's editing!!!")
         await client.edit_message(msg2, embed = discord.Embed(title="Embed 1", description="Embed 2", color=0xE90FF))
 
 @client.group(pass_context=True, invoke_without_command=True)
