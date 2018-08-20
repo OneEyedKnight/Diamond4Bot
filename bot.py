@@ -60,7 +60,7 @@ async def help(ctx):
     await client.add_reaction(embed, '1️⃣')
     await client.add_reaction(embed,'2️⃣')
     await client.add_reaction(embed,'3️⃣')
-    helpreaction2 = await client.wait_for_reaction(['2️⃣']), message=help1)
+    helpreaction2 = await client.wait_for_reaction(['2️⃣'], message=help1)
     embed2 = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamondr4luck#4795.")
     embed.add_field(name="Fun Commands")
     embed.add_field(name="!!flip", value="A good ol' flip of the coin.")
