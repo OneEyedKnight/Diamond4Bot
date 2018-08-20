@@ -53,7 +53,7 @@ async def reac(ctx):
 async def help(ctx):
     embed = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
     embed.add_field(name="Help Page", value="Click the number reactions below to look at different types of commands!")
-    embed.add_field(name="Bot Related Commands")
+    embed.add_field(name="Bot Related Commands", value="Mess around with the bot.)
     embed.add_field(name="!!ping",value="Check if the bot is working or not.")
     embed.add_field(name="!!help", value="The page you are currently on.")
     help1 = await client.say(embed=embed)
@@ -62,7 +62,7 @@ async def help(ctx):
     await client.add_reaction(embed,'3️⃣')
     helpreaction2 = await client.wait_for_reaction(['2️⃣'], message=help1)
     embed2 = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamondr4luck#4795.")
-    embed.add_field(name="Fun Commands")
+    embed.add_field(name="Fun Commands", value="Have some fun with these!")
     embed.add_field(name="!!flip", value="A good ol' flip of the coin.")
     embed.add_field(name="!!roulette", value="Ask something and see who gets it.")
     embed.add_field(name="!!number", value="See what is your lucky number!")
