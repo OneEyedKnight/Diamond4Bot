@@ -61,7 +61,7 @@ async def help(ctx):
     await client.add_reaction(help1,'2\u20e3')
     await client.add_reaction(help1,'3\u20e3')
     helpreaction2 = await client.wait_for_reaction(['2\u20e3'], message=help1)
-    embed2 = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
+    embedkek = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
     embed.add_field(name="Fun Commands", value="Have some fun with these!")
     embed.add_field(name="!!flip", value="A good ol' flip of the coin.")
     embed.add_field(name="!!roulette", value="Ask something and see who gets it.")
@@ -72,7 +72,7 @@ async def help(ctx):
     embed.add_field(name="!kill", value="Randomly kill someone with something!")
     embed.add_field(name="!!game", value="See what game you like to play the most.")
     embed.add_field(name="!!power", value="See what hidden powers you have!")
-    embed.to_dict()
+    embed2 = embed.to_dict()
     await client.edit_message(help1, embed=embed2)
     
     
