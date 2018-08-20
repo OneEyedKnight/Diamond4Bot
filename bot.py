@@ -72,7 +72,7 @@ async def help(ctx):
     embed.add_field(name="!kill", value="Randomly kill someone with something!")
     embed.add_field(name="!!game", value="See what game you like to play the most.")
     embed.add_field(name="!!power", value="See what hidden powers you have!")
-    embed2 = embed.to_dict()
+    embed2 = await client.say(embed=embedkek)
     await client.edit_message(help1, embed=embed2)
     
     
