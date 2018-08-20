@@ -48,6 +48,7 @@ async def reac(ctx):
         await client.add_reaction(msgtest,'👍')
         res = await client.wait_for_reaction(['👍', '👎'], message=msgtest)
         await client.edit_message(msgtest, embed = discord.Embed(title="Embed 1", description="Embed 2", color=0xE90FF.format(res))
+        await client.say(embed=embed)
 
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
