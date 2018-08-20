@@ -43,9 +43,9 @@ async def logs(ctx):
     
 @client.command(pass_context=True)
 async def reac(ctx):
-        msg = await client.send_message(message.channel, 'React with thumbs up or thumbs down.')
+        msg = await client.say("React with thumbs up or thumbs down.")
         res = await client.wait_for_reaction(['👍', '👎'], message=msg)
-        await client.send_message(message.channel, '{0.user} reacted with {0.reaction.emoji}!'.format(res))
+        await client.say("{0.user} reacted with {0.reaction.emoji}!".format(res))
 
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
