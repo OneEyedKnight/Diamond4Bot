@@ -53,9 +53,29 @@ async def reac(ctx):
 async def help(ctx):
     embed = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
     embed.add_field(name="Help Page", value="Click the number reactions below to look at different types of commands!")
-    embed.add_field(name="Bot Related Commands", value="!!ping")
-    embed.add_field(value="!!help")
-    await client.say(embed=embed)
+    embed.add_field(name="Bot Related Commands")
+    embed.add_field(name="!!ping",value="Check if the bot is working or not.")
+    embed.add_field(name="!!help", value="The page you are currently on.")
+    help1 = await client.say(embed=embed)
+    await client.add_reaction(embed, '1️⃣')
+    await client.add_reaction(embed,'2️⃣')
+    await client.add_reaction(embed,'3️⃣')
+    helpreaction2 = await client.wait_for_reaction(['2️⃣']), message=help1)
+    embed2 = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamondr4luck#4795.")
+    embed.add_field(name="Fun Commands")
+    embed.add_field(name="!!flip", value="A good ol' flip of the coin.")
+    embed.add_field(name="!!roulette", value="Ask something and see who gets it.")
+    embed.add_field(name="!!number", value="See what is your lucky number!")
+    embed.add_field(name="!!badnumber", value="See what is your unlucky number!")
+    embed.add_field(name="!!waud", value="waud stands for 'what are you doing'. See who's doing what now!")
+    embed.add_field(name="!!diary", value="See other people's diary and check out what they did in the past!")
+    embed.add_field(name="!kill", value="Randomly kill someone with something!")
+    embed.add_field(name="!!game", value="See what game you like to play the most.")
+    embed.add_field(name="!!power", value="See what hidden powers you have!")
+    help2 = await client.say(embed=embed)
+    await client.edit_message(help1, embed=help2)
+    
+    
 
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
@@ -126,15 +146,6 @@ async def game(ctx):
     else:
         await client.say('%s you like to play %s' % (ctx.message.author.mention, games))
 
-@client.command(pass_context=True)
-async def job(ctx):
-    job = open('jobs.txt').read().splitlines()
-    jobs = random.choice(job)
-    if ctx.message.author.id == "206027308149112832":
-        await client.say("<@!206027308149112832> you work as a: Chef")
-    else:
-        await client.say('%s you work as a: %s' % (ctx.message.author.mention, jobs))
-        
 @client.command(pass_context=True)
 async def test(ctx):
     await client.say('hi')
@@ -265,9 +276,9 @@ async def pung(ctx):
     await client.say("What do you expect me to say, huh? PINGPONGPUNGPUN?! WHAT THE HELL BRUH")
 
 @client.command(pass_context=True)
-async def ask(ctx,*, string):
-    ask = random.choice([x for x in ctx.message.server.members if not x.bot])
-    await client.say("The winner of ``%s`` is ``%s``" % (string, ask.display_name))
+async def roulette(ctx,*, string):
+    roulette = random.choice([x for x in ctx.message.server.members if not x.bot])
+    await client.say("The winner of ``%s`` is ``%s``" % (string, roulette.display_name))
 
 @client.command(pass_context=True)
 async def chance(ctx):
