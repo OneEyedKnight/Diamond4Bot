@@ -43,12 +43,11 @@ async def logs(ctx):
     
 @client.command(pass_context=True)
 async def reac(ctx):
-        msg = await client.say("React with thumbs up or thumbs down.")
-        await client.add_reaction(wyr,'👍')
+        embed = discord.Embed(title="Going to be edited.", description="Thumbs up to update.")
+        await client.add_reaction(embed,'👍')
         res = await client.wait_for_reaction(['👍', '👎'], message=msg)
         msg2 = await client.say("ok see if this works.")
-        embed = discord.Embed(title="Embed 1", description="Embed 2", color=0xE90FF)
-        await client.edit_message(msg2, embed=embed)
+        await client.edit_message(msg2, embed = discord.Embed(title="Embed 1", description="Embed 2", color=0xE90FF))
 
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
