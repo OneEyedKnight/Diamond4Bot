@@ -52,8 +52,7 @@ async def reac(ctx):
 @client.command(pass_context=True)
 async def cd(ctx):
     cd = await client.say("Cooldown is 5 seconds.")
-    t = Timer(30.0, cd)
-    await client.start(t)
+    await asyncio.sleep(5)
         
 @client.command(pass_context=True)
 async def mute(ctx, member: discord.Member):
