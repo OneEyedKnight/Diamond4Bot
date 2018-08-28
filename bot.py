@@ -26,6 +26,11 @@ async def power(ctx):
         await client.say("<@!206027308149112832> You can fly!")
     else:
         await client.say('%s Your hidden power is: %s' % (ctx.message.author.mention, power2))
+        
+@client.command(pass_context=True)
+@commands.cooldown(1, 30, commands.BucketType.user)
+async def enablesentience(ctx):
+    await client.say(":desktop: | User does not have sufficient permissions.")
                     
 @client.command(pass_context=True)
 async def logs(ctx):
