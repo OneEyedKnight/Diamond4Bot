@@ -29,8 +29,8 @@ async def power(ctx):
         
 @client.command(pass_context=True)
 @commands.cooldown(1, 30, commands.BucketType.user)
-async def enablesentience(ctx):
-    await client.say(":desktop: | User does not have sufficient permissions.")
+async def cooldown(ctx):
+    await client.say("Ok. See if this has cooldown now.")
                     
 @client.command(pass_context=True)
 async def logs(ctx):
