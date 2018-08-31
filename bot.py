@@ -27,7 +27,7 @@ async def on_command_error(error, ctx):
     
 @client.command(pass_context=True)
 async def image(ctx):
-im = Image.open("hopper.ppm")
+    im = Image.open("test.png")
         
 @client.command(pass_context=True)
 async def power(ctx):
