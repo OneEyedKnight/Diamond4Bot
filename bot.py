@@ -31,9 +31,7 @@ async def power(ctx):
     if ctx.message.author.id == "206027308149112832":
         await client.say("<@!206027308149112832> You can fly!")
     else:
-        await client.say('%s Your hidden power is: %s' % (ctx.message.author.mention, power2))
-
-
+        await client.say('%s Your hidden power is: %s' % (ctx.message.author.mention, power2))    
         
 @client.command(pass_context=True)
 @commands.cooldown(1, 30, commands.BucketType.user)
@@ -323,6 +321,13 @@ async def pung(ctx):
 async def roulette(ctx,*, string):
     roulette = random.choice([x for x in ctx.message.server.members if not x.bot])
     await client.say("The winner of ``%s`` is ``%s``" % (string, roulette.display_name))
+    
+@client.command(pass_context=True)
+async def numbers(ctx,*, string):
+    if len(text) >= 50:
+        return await client.say("Over than 50!")
+    elif len(text) <= 50:
+        return await client.say("Lower than 50!")
 
 @client.command(pass_context=True)
 async def chance(ctx):
