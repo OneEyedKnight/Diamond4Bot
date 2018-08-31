@@ -28,6 +28,7 @@ async def on_command_error(error, ctx):
 @client.command(pass_context=True)
 async def image(ctx):
     im = Image.open("test.png")
+    im.show()
         
 @client.command(pass_context=True)
 async def power(ctx):
