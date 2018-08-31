@@ -5,6 +5,7 @@ import os
 from discord.ext.commands import Bot
 from discord.ext import commands
 import random
+from PIL import Image, ImageFilter
 
 Client = discord.Client()
 bot_prefix='!!'
@@ -24,6 +25,13 @@ async def on_command_error(error, ctx):
         await client.send_message(ctx.message.channel, content='This command is on a %.2fs cooldown! Please try again later...' % error.retry_after)
     raise error
 
+@client.command(pass_context=True)
+async def image(ctx):
+    try:
+        original = Image.open("test.png")
+    except:
+        await client.say("Nope.")
+        
 @client.command(pass_context=True)
 async def power(ctx):
     power = open('power.txt').read().splitlines()
