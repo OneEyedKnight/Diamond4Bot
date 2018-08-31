@@ -21,7 +21,7 @@ async def on_ready():
 @client.event
 async def on_command_error(error, ctx):
     if isinstance(error, commands.CommandOnCooldown):
-        await bot.send_message(ctx.message.channel, content='This command is on a %.2fs cooldown' % error.retry_after)
+        await client.send_message(content='This command is on a %.2fs cooldown' % error.retry_after)
     raise error
 
 @client.command(pass_context=True)
