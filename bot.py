@@ -5,7 +5,7 @@ import os
 from discord.ext.commands import Bot
 from discord.ext import commands
 import random
-import Image
+import PIL
 
 Client = discord.Client()
 bot_prefix='!!'
