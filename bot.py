@@ -29,9 +29,9 @@ async def power(ctx):
         
 @client.command(pass_context=True)
 @commands.cooldown(1, 30, commands.BucketType.user)
-@commands.CommandOnCooldown(cooldown,retry_after)
 async def cooldown(ctx):
-    cooldown = await client.say("Ok. See if this has cooldown now.")
+    await client.say("Ok. See if this has cooldown now.")
+    await client.on_command_error("Test")
     
     
                     
