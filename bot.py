@@ -16,7 +16,13 @@ async def on_ready():
     print("Bot Online")
     print("Name: (Diamond4Bot)".format(client.user.name))
     print("ID: ()".format(client.user,id))
-    await client.change_presence(game=discord.Game(name='type !!help')  )                            
+    await client.change_presence(game=discord.Game(name='type !!help')  ) 
+    
+@client.event
+async def on_command_error(error, ctx):
+    if isinstance(error, commands.CommandOnCooldown):
+        await bot.send_message(ctx.message.channel, content='This command is on a %.2fs cooldown' % error.retry_after)
+    raise error
 
 @client.command(pass_context=True)
 async def power(ctx):
@@ -26,12 +32,14 @@ async def power(ctx):
         await client.say("<@!206027308149112832> You can fly!")
     else:
         await client.say('%s Your hidden power is: %s' % (ctx.message.author.mention, power2))
+
+
         
 @client.command(pass_context=True)
 @commands.cooldown(1, 30, commands.BucketType.user)
 async def cooldown(ctx):
     cooldown = await client.say("Ok. See if this has cooldown now.")
-    await client.on_command_error(context="Test",exception)
+
     
     
                     
