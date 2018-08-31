@@ -43,6 +43,7 @@ async def cooldown(ctx):
 @client.command(pass_context=True)
 async def logs(ctx):
     embed = discord.Embed(title="All the changelogs here!", color=0xE90FF)
+    embed.add_field(name="Minor Update!"), value="Some commands have cooldowns to prevent spam! Added in 8/31/2019.")
     embed.add_field(name="New Command!", value="Do !!diary to see other people's hidden messages in their diaries! Added in 18/8/2018.")
     embed.add_field(name="Updated Command!", value="Updated the !!love command. Now you can see how long people had loved together.")
     embed.add_field(name="Updated Command!", value="Updated the !!kill command. **You** can kill other people now!.")
@@ -51,7 +52,6 @@ async def logs(ctx):
     embed.add_field(name="New Command!", value="Do !!waud to see what other memebrs are doing. Added in 26/2/2018.")
     embed.add_field(name="Minor Update!", value="Every embed should have colours now! Updated in 13/1/2018.")
     embed.add_field(name="Updated Command!", value="Updated the !!help command. This time, it's an embed! Updated in 13/1/2018.")
-    embed.add_field(name="New Command!", value="Do !!suggest to suggest me something. Added in 13/1/2018.")
     await client.say(embed=embed)
     
 @client.command(pass_context=True)
