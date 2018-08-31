@@ -21,7 +21,7 @@ async def on_ready():
 @client.event
 async def on_command_error(error, ctx):
     if isinstance(error, commands.CommandOnCooldown):
-        await client.send_message(ctx.message.channel, content='This command is on a %.2fs cooldown' % error.retry_after)
+        await client.send_message(ctx.message.channel, content='This command is on a %.2fs cooldown! Please try again later...' % error.retry_after)
     raise error
 
 @client.command(pass_context=True)
@@ -39,9 +39,6 @@ async def power(ctx):
 @commands.cooldown(1, 30, commands.BucketType.user)
 async def cooldown(ctx):
     cooldown = await client.say("Ok. See if this has cooldown now.")
-
-    
-    
                     
 @client.command(pass_context=True)
 async def logs(ctx):
@@ -152,6 +149,7 @@ async def add(ctx,*, string):
     await client.say("Added!")
 
 @client.command(pass_context=True)
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def kill(ctx):
     kill = open('Deaths.txt').read().splitlines()
     death = random.choice(kill)
@@ -163,6 +161,7 @@ async def kill(ctx):
     await client.say(embed=embed)
     
 @client.command(pass_context=True)
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def diary(ctx):
     ContentsDiary = open('Diary.txt').read().splitlines()
     ContentsDiary2 = random.choice(ContentsDiary)
@@ -181,6 +180,7 @@ async def kick(ctx, user: discord.Member):
     await client.kick(user)
 
 @client.command(pass_context=True)
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def game(ctx):
     game = open('Games.txt').read().splitlines()
     games = random.choice(game)
@@ -251,6 +251,7 @@ async def moti(ctx):
     await client.say(embed=embed)
     
 @client.command(pass_context=True)
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def love(ctx):
     love = random.choice([x for x in ctx.message.server.members if not x.bot])
     love2 = random.choice([x for x in ctx.message.server.members if not x.bot])  
