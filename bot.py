@@ -5,7 +5,7 @@ import os
 from discord.ext.commands import Bot
 from discord.ext import commands
 import random
-from Pillow import Image
+from PIL import Image
 
 
 Client = discord.Client()
@@ -154,7 +154,7 @@ async def add(ctx,*, string):
     await client.say("Added!")
 
 @client.command(pass_context=True)
-@commands.cooldown(1, 5, commands.BucketType.user)
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def kill(ctx):
     kill = open('Deaths.txt').read().splitlines()
     death = random.choice(kill)
