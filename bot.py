@@ -41,7 +41,7 @@ async def Image(ctx):
     
     
 @client.command(pass_context=True)
-@commands.cooldown(1, 30, commands.BucketType.user)
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def cooldown(ctx):
     cooldown = await client.say("Ok. See if this has cooldown now.")
                     
