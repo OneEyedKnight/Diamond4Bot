@@ -5,7 +5,8 @@ import os
 from discord.ext.commands import Bot
 from discord.ext import commands
 import random
-import Image
+from PIL import Image
+
 
 Client = discord.Client()
 bot_prefix='!!'
@@ -24,11 +25,6 @@ async def on_command_error(error, ctx):
     if isinstance(error, commands.CommandOnCooldown):
         await client.send_message(ctx.message.channel, content='This command is on a %.2fs cooldown! Please try again later...' % error.retry_after)
     raise error
-    
-@client.command(pass_context=True)
-async def image(ctx):
-    im = Image.open("test.png")
-    im.show()
         
 @client.command(pass_context=True)
 async def power(ctx):
@@ -39,6 +35,11 @@ async def power(ctx):
     else:
         await client.say('%s Your hidden power is: %s' % (ctx.message.author.mention, power2))    
         
+@client.command(pass_context=True)
+async def Image(ctx):
+    im = Image.open("test.png")
+    
+    
 @client.command(pass_context=True)
 @commands.cooldown(1, 30, commands.BucketType.user)
 async def cooldown(ctx):
