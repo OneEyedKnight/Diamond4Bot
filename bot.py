@@ -5,7 +5,7 @@ import os
 from discord.ext.commands import Bot
 from discord.ext import commands
 import random
-import Image
+from Pillow import Image
 
 
 Client = discord.Client()
