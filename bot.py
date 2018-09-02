@@ -65,6 +65,14 @@ async def reac(ctx):
 async def cd(ctx):
     await asyncio.sleep(10)
     await client.say("Wait for 10 seconds.")
+
+@client.command(pass_context=True)
+async def casino(ctx):
+    casinonumber = random.randint(0,100)
+    if {0} > 50:
+        await client.say("Bigger than 50!")
+    else:
+        await client.say("Smaller than 50!") 
     
 @client.command(pass_context = True)
 async def mute(ctx, member: discord.Member):
@@ -111,10 +119,7 @@ async def help(ctx):
     embed.add_field(name="!!future", value="See your future!")
     embed.add_field(name="!!wyr", value="wyr means Would You Rather. React to the emojis if you rather do this rather than that!")
     embed.add_field(name="!!yon", value="yon means Yes or No. You would be given a question, and react if you want it or not.")
-    help3 = await client.edit_message(help2,embed=embed)
-    
-    
-    
+    help3 = await client.edit_message(help2,embed=embed)    
 
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
@@ -323,13 +328,6 @@ async def roulette(ctx,*, string):
     roulette = random.choice([x for x in ctx.message.server.members if not x.bot])
     await client.say("The winner of ``%s`` is ``%s``" % (string, roulette.display_name))
     
-@client.command(pass_context=True)
-async def numbers(ctx, num:int)
-    if  >= 50:
-        return await client.say("Over than 50!")
-    elif  <= 50:
-        return await client.say("Lower than 50!")
-
 @client.command(pass_context=True)
 async def chance(ctx):
     luck = random.choice(["Try again later","Maybe","NOPE","50% chance","Definitely not","Yes, definitely","It depends on your fate","Dunno, maybe ask the owner of this bot?"])
