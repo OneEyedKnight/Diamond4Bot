@@ -80,7 +80,7 @@ async def casino(ctx):
     if casinonumber5 >= 50:
         await client.edit_message(sentcasinon4, "Bigger than 50!")
     else:
-        await client.edit_message(sentcasino4, "Smaller than 50!"
+        await client.edit_message(sentcasino4, "Smaller than 50!")
                     
 @client.command(pass_context = True)
 async def mute(ctx, member: discord.Member):
