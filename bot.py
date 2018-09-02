@@ -65,22 +65,6 @@ async def reac(ctx):
 async def cd(ctx):
     await asyncio.sleep(10)
     await client.say("Wait for 10 seconds.")
-
-@client.command(pass_context=True)
-async def casino(ctx):
-    casinonumber = random.randint(0,100)
-    sentcasinon = await client.say("{0}".format(casinonumber))
-    casinonumber2 = random.randint(0,100)
-    sentcasinon2 = edit_message(sentcasinon,"{0}".format(casinonumber2))
-    casinonumber3 = random.randint(0,100)
-    sentcasinon3 = edit_message(sentcasinon2,"{0}".format(casinonumber3))
-    casinonumber4 = random.randint(0,100)
-    sentcasinon4 = edit_message(sentcasinon3,"{0}".format(casinonumber4))
-    casinonumber5 = random.randint(0,100)    
-    if casinonumber5 >= 50:
-        await client.edit_message(sentcasinon4,"Bigger than 50!")
-    else:
-        await client.edit_message(sentcasino4,"Smaller than 50!")
                     
 @client.command(pass_context = True)
 async def mute(ctx, member: discord.Member):
@@ -127,8 +111,24 @@ async def help(ctx):
     embed.add_field(name="!!future", value="See your future!")
     embed.add_field(name="!!wyr", value="wyr means Would You Rather. React to the emojis if you rather do this rather than that!")
     embed.add_field(name="!!yon", value="yon means Yes or No. You would be given a question, and react if you want it or not.")
-    help3 = await client.edit_message(help2,embed=embed)    
-
+    help3 = await client.edit_message(help2,embed=embed) 
+    
+@client.command(pass_context=True)
+async def casino(ctx):
+    casinonumber = random.randint(0,100)
+    sentcasinon = await client.say("{0}".format(casinonumber))
+    casinonumber2 = random.randint(0,100)
+    sentcasinon2 = await edit_message(sentcasinon,"{0}".format(casinonumber2))
+    casinonumber3 = random.randint(0,100)
+    sentcasinon3 = await edit_message(sentcasinon2,"{0}".format(casinonumber3))
+    casinonumber4 = random.randint(0,100)
+    sentcasinon4 = await edit_message(sentcasinon3,"{0}".format(casinonumber4))
+    casinonumber5 = random.randint(0,100)    
+    if casinonumber5 >= 50:
+        await client.edit_message(sentcasinon4,"Bigger than 50!")
+    else:
+        await client.edit_message(sentcasino4,"Smaller than 50!")
+        
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
     yesornolist = open('yesorno.txt').read().splitlines()
