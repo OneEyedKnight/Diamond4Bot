@@ -125,9 +125,10 @@ async def casino(ctx):
     sentcasinon4 = await client.edit_message(sentcasinon3,"{0}".format(casinonumber4))
     casinonumber5 = random.randint(0,100)    
     if casinonumber5 >= 50:
-        await client.edit_message(sentcasinon4,"Bigger than 50!")
+        await client.edit_message(sentcasinon4,"The number is {0}, which is bigger than 50!".format(casinonumber))
     else:
-        await client.edit_message(sentcasino4,"Smaller than 50!")
+        await client.edit_message(sentcasino4,"The number is {0}, which is smaller than 50!".format(casinonumber5))
+
         
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
