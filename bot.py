@@ -5,7 +5,6 @@ import os
 from discord.ext.commands import Bot
 from discord.ext import commands
 import random
-from PIL import Image
 
 
 Client = discord.Client()
@@ -25,7 +24,7 @@ async def on_command_error(error, ctx):
     if isinstance(error, commands.CommandOnCooldown):
         await client.send_message(ctx.message.channel, content='This command is on a %.2fs cooldown! Please try again later...' % error.retry_after)
     raise error
-        
+               
 @client.command(pass_context=True)
 async def power(ctx):
     power = open('power.txt').read().splitlines()
@@ -33,12 +32,7 @@ async def power(ctx):
     if ctx.message.author.id == "206027308149112832":
         await client.say("<@!206027308149112832> You can fly!")
     else:
-        await client.say('%s Your hidden power is: %s' % (ctx.message.author.mention, power2))    
-        
-@client.command(pass_context=True)
-async def Image(ctx):
-    im = Image.open("test.png")
-    
+        await client.say('%s Your hidden power is: %s' % (ctx.message.author.mention, power2))       
     
 @client.command(pass_context=True)
 @commands.cooldown(1, 9, commands.BucketType.user)
@@ -331,9 +325,9 @@ async def roulette(ctx,*, string):
     
 @client.command(pass_context=True)
 async def numbers(ctx,*, string):
-    if len(text) >= 50:
+    if %s >= 50:(string)
         return await client.say("Over than 50!")
-    elif len(text) <= 50:
+    elif %s <= 50:(string)
         return await client.say("Lower than 50!")
 
 @client.command(pass_context=True)
