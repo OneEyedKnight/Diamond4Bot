@@ -324,10 +324,10 @@ async def roulette(ctx,*, string):
     await client.say("The winner of ``%s`` is ``%s``" % (string, roulette.display_name))
     
 @client.command(pass_context=True)
-async def numbers(ctx,*, string):
-    if %s >= 50:(string)
+async def numbers(ctx, num: int)
+    if  >= 50:
         return await client.say("Over than 50!")
-    elif %s <= 50:(string)
+    elif  <= 50:
         return await client.say("Lower than 50!")
 
 @client.command(pass_context=True)
