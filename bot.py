@@ -71,16 +71,16 @@ async def casino(ctx):
     casinonumber = random.randint(0,100)
     sentcasinon = await client.say("{0}".format(casinonumber))
     casinonumber2 = random.randint(0,100)
-    sentcasinon2 = edit_message(sentcasinon, "{0}".format(casinonumber2))
+    sentcasinon2 = edit_message(sentcasinon,"{0}".format(casinonumber2))
     casinonumber3 = random.randint(0,100)
-    sentcasinon3 = edit_message(sentcasinon2, "{0}".format(casinonumber3))
+    sentcasinon3 = edit_message(sentcasinon2,"{0}".format(casinonumber3))
     casinonumber4 = random.randint(0,100)
-    sentcasinon4 = edit_message(sentcasinon3, "{0}".format(casinonumber4))
+    sentcasinon4 = edit_message(sentcasinon3,"{0}".format(casinonumber4))
     casinonumber5 = random.randint(0,100)    
     if casinonumber5 >= 50:
-        await client.edit_message(sentcasinon4, "Bigger than 50!")
+        await client.edit_message(sentcasinon4,"Bigger than 50!")
     else:
-        await client.edit_message(sentcasino4, "Smaller than 50!")
+        await client.edit_message(sentcasino4,"Smaller than 50!")
                     
 @client.command(pass_context = True)
 async def mute(ctx, member: discord.Member):
