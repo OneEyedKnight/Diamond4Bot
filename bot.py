@@ -116,10 +116,10 @@ async def help(ctx):
 @client.command(pass_context=True)
 async def casino(ctx):
     casinostart = await client.say("Bigger or smaller? React with reactions.")
-    await client.add_reaction(casinostart,'U+0042')
-    await client.add_reaction(casinostart,'U+0073')
-    bigger = await client.wait_for_reaction(['U+0042'],message=casinostart)
-    smaller = await client.wait_for_reaction(['U+0073'],message=casinostart)
+    await client.add_reaction(casinostart,'\U0001f1e7')
+    await client.add_reaction(casinostart,'\U0001f1f8')
+    bigger = await client.wait_for_reaction(['\U0001f1e7'],message=casinostart)
+    smaller = await client.wait_for_reaction(['\U0001f1f8'],message=casinostart)
     if bigger:
         await client.say("Bigger? OK, time to roll!")
     elif smaller:
