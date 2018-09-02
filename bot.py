@@ -69,11 +69,11 @@ async def cd(ctx):
 @client.command(pass_context=True)
 async def casino(ctx):
     casinonumber = (random.randint(0,100)
-    if {0} >= 50:
+    if %s >= 50:
         await client.say ("Bigger than 50!")
     else:
-        await client.say ("Smaller than 50!")
-    
+        await client.say ("Smaller than 50!") 
+                    
 @client.command(pass_context = True)
 async def mute(ctx, member: discord.Member):
      if ctx.message.author.server_permissions.administrator or ctx.message.author.id == '194151340090327041':
