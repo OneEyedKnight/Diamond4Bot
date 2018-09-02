@@ -69,9 +69,9 @@ async def cd(ctx):
 @client.command(pass_context=True)
 async def casino(ctx):
     casinonumber = (random.randint(0,100)
-    if {0} >= 50
+    if {0} >= 50:
         await client.say int(("Bigger than 50!"))
-    else
+    else:
         await client.say int(("Smaller than 50!"))
     
 @client.command(pass_context = True)
