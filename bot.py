@@ -139,7 +139,7 @@ async def casino(ctx):
 @client.command(pass_context=True)
 async def edit(ctx):
     edit = await client.say("Edit.")
-    await client.add_reaction(help1,'2\u20e3')
+    await client.add_reaction(edit,'2\u20e3')
     edit2 = await client.wait_for_reaction(['3\u20e3'], message=edit)
     await client.edit_message(edit, "Edited!")
     
