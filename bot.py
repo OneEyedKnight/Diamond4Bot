@@ -118,10 +118,10 @@ async def casino(ctx):
     casinostart = await client.say("Bigger or smaller? React with reactions.")
     await client.add_reaction(casinostart,'\U0001f1e7')
     await client.add_reaction(casinostart,'\U0001f1f8')
-    if bigger = await client.wait_for_reaction(['\U0001f1e7'], message=casinostart):
-    bigger2 = await client.edit_message(casinostart, "Bigger? Alright! Starting the roll!".format(bigger))
-    elif smaller = await client.wait_for_reaction(['\U0001f1f8'], message=casinostart):
-    smaller2 = await client.edit_message(casinostart, "Smaller? Alright! Starting the roll!".format(smaller))
+    if await client.wait_for_reaction(['\U0001f1e7'], message=casinostart):
+    await client.edit_message(casinostart, "Bigger? Alright! Starting the roll!"
+    elif await client.wait_for_reaction(['\U0001f1f8'], message=casinostart):
+    await client.edit_message(casinostart, "Smaller? Alright! Starting the roll!"
     casinonumber = random.randint(0,100)
     sentcasinon = await client.say("{0}".format(casinonumber))
     casinonumber2 = random.randint(0,100)
