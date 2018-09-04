@@ -119,7 +119,7 @@ async def casino(ctx):
     await client.add_reaction(casinostart,'\U0001f1e7')
     await client.add_reaction(casinostart,'\U0001f1f8')
     bigger = await client.wait_for_reaction(['\U0001f1e7'], message=casinostart)
-    bigger2 = await client.edit_message(casinostart,"Bigger? Alright! Starting the roll!")
+    bigger2 = await client.edit_message(casinostart, "Bigger? Alright! Starting the roll!")
     smaller = await client.wait_for_reaction(['\U0001f1f8'], message=casinostart)
     smaller2 = await client.edit_message(casinostart, "Smaller? Alright! Starting the roll!")
     casinonumber = random.randint(0,100)
@@ -136,7 +136,11 @@ async def casino(ctx):
     else:
         await client.edit_message(sentcasinon4,"The number is {0}, which is smaller than 50!".format(casinonumber5))
 
-        
+@client.command(pass_context=True)
+async def edit(ctx):
+    edit = await client.say("Edit.")
+    await client.edit_message(edit, "Edited!")
+    
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
     yesornolist = open('yesorno.txt').read().splitlines()
