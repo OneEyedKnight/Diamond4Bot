@@ -121,7 +121,7 @@ async def casino(ctx):
     if await client.wait_for_reaction(['\U0001f1e7'], message=casinostart):
         await client.edit_message(casinostart, "Bigger? Alright! Starting the roll!")
     else:
-        await client.wait_for_reaction(['\U0001f1f8'], message=casinostart):
+        await client.wait_for_reaction(['\U0001f1f8'], message=casinostart)
         await client.edit_message(casinostart, "Smaller? Alright! Starting the roll!")
     casinonumber = random.randint(0,100)
     sentcasinon = await client.say("{0}".format(casinonumber))
