@@ -121,8 +121,7 @@ async def casino(ctx):
     
     def size(msg):
         return await client.wait_for_reaction(['\U0001f1e7'], message=casinostart) or smaller = await client.wait_for_reaction(['\U0001f1f8'], message=casinostart)
-        
-    message = await client.wait_for_message(check=fight)  
+         
     await client.edit_message(casinostart, "Bigger? Alright! Starting the roll!"(check=size))
     await client.edit_message(casinostart, "Smaller? Alright! Starting the roll!"(check=size))
     casinonumber = random.randint(0,100)
