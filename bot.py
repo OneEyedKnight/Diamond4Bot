@@ -122,11 +122,6 @@ async def casino(ctx):
     def check(reaction, user):
     return user = ctx.message.author and str(reaction.emoji) in ['\U0001fe7', '\U0001f1f8']
 
-try:
-    reaction, user = await client.wait_for_reaction(check=check, message=casinostart, timeout=30)
-except asyncio.TimeoutError:
-    await client.say("You ran out of time")
-else:
     if str(reaction.emoji) == '\U0001f1e7':
           await client.edit_message(casinostart,"Bigger?")
     else:
