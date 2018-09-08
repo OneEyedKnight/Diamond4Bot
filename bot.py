@@ -120,7 +120,7 @@ async def casino(ctx):
     await client.add_reaction(casinostart,'\U0001f1f8')
     
     def check(reaction, user):
-    return user == ctx.message.author and str(reaction.emoji) in ['\U0001fe7', '\U0001f1f8']
+    return user = ctx.message.author and str(reaction.emoji) in ['\U0001fe7', '\U0001f1f8']
 
 try:
     reaction, user = await client.wait_for_reaction(check=check, message=casinostart, timeout=30)
