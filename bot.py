@@ -118,10 +118,6 @@ async def casino(ctx):
     casinostart = await client.say("Bigger or smaller? React with reactions.")
     await client.add_reaction(casinostart,'\U0001f1e7')
     await client.add_reaction(casinostart,'\U0001f1f8')
-    
-    def check(reaction, user):
-    return user = ctx.message.author and str(reaction.emoji) in ['\U0001fe7', '\U0001f1f8']
-
     if str(reaction.emoji) == '\U0001f1e7':
           await client.edit_message(casinostart,"Bigger?")
     else:
