@@ -119,9 +119,9 @@ async def casino(ctx):
     
     def check(m):
         return content == 'Bigger','Smaller'
-    bigger = await client.wait_for_message(check=check)
+    bigger = await client.wait_for('message',check=check)
     await client.say('Bigger!'.format(bigger))
-    smaller = await client.wait_for_message(check=check)
+    smaller = await client.wait_for('message',check=check)
     await client.say('Smaller!'.format(smaller))
     casinonumber = random.randint(0,100)
     sentcasinon = await client.say("{0}".format(casinonumber))
