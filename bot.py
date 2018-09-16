@@ -116,10 +116,15 @@ async def help(ctx):
 @client.command(pass_context=True)
 async def casino(ctx):
     casinostart = await client.say("Bigger or smaller? Say it!")
-    bigger = client.wait_for_message(author=ctx.message.author, content="Bigger")
-        await client.say('Bigger!')
-    smaller = client.wait_for_message(author=ctx.message.author, content="Smaller")
-        await client.say('Smaller!')
+
+    def check(m):
+    return 'Bigger', 'Smaller'
+
+    message = await client.wait_for_message()
+    if 'Bigger' in message.content:
+        await client.send_message("hey it was bigger. nice.")
+    elif 'Smaller' in message.content:
+        await client.send_message("well thats awkward.... it was smaller.")
     casinonumber = random.randint(0,100)
     sentcasinon = await client.say("{0}".format(casinonumber))
     casinonumber2 = random.randint(0,100)
