@@ -115,7 +115,7 @@ async def help(ctx):
     
 @client.command(pass_context=True)
 async def casino(ctx):
-    casinostart = await client.say("Bigger or smaller? Say it!")
+    casinostart = await client.say("Bigger or smaller than 50? Say it!")
 
     def check(m):
         return 'Bigger', 'Smaller'
