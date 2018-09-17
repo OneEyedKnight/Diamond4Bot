@@ -42,6 +42,7 @@ async def cooldown(ctx):
 @client.command(pass_context=True)
 async def logs(ctx):
     embed = discord.Embed(title="All the changelogs here!", color=0xE90FF)
+    embed.add_field(name="New Command!", value="Do !!casino and try your luck! Added in 17/9/2018.")
     embed.add_field(name="Minor Update!", value="Some commands have cooldowns to prevent spam! Added in 8/31/2019.")
     embed.add_field(name="New Command!", value="Do !!diary to see other people's hidden messages in their diaries! Added in 18/8/2018.")
     embed.add_field(name="Updated Command!", value="Updated the !!love command. Now you can see how long people had loved together.")
@@ -98,6 +99,7 @@ async def help(ctx):
     embed.add_field(name="!!waud", value="waud stands for 'what are you doing'. See who's doing what now!")
     embed.add_field(name="!!diary", value="See other people's diary and check out what they did in the past!")
     embed.add_field(name="!kill", value="Randomly kill someone with something!")
+    embed.add_field(name="!!casino", value="Try out your luck and see if the number is bigger or smaller!")
     embed.add_field(name="!!game", value="See what game you like to play the most.")
     embed.add_field(name="!!power", value="See what hidden powers you have!")
     help2 = await client.edit_message(help1, embed=embed)
