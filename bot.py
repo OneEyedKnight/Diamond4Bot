@@ -179,6 +179,7 @@ async def rps(ctx):
     rps4 = random.choice(["Rock","Paper","Scissors"])
     rpsdecision4 = await client.edit_message(rpsdecision3,"{}".format(rps4))
     rps5 = random.choice(["Rock","Paper","Scissors"])
+    rpsdecision5 = await client.edit_message(rpsdecision4,"{}".format(rps5))
 
     if 'Rock' in rps5:
         if 'Rock' in message.content:
