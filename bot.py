@@ -180,21 +180,21 @@ async def rps(ctx):
     rpsdecision4 = await client.edit_message(rpsdecision3,"{}".format(rps4))
     rps5 = random.choice(["Rock","Paper","Scissors"])
 
-    if 'Rock' in client.content:
+    if 'Rock' in rps5:
         if 'Rock' in message.content:
             await client.say("Rock versus Rock, it's a **tie!**")
         elif 'Paper' in message.content:
             await client.say("Paper versus Rock, Rock **wins!** You won!")
         elif 'Scissors' in message.content:
             await client.say("Scissors versus Rock, Rock **wins!** You lost!")
-    elif 'Paper' in client.content:
+    elif 'Paper' in rps5:
         if 'Rock' in message.content:
             await client.say("Rock versus Paper, Paper **wins!** You lost!")
         elif 'Paper' in message.content:
             await client.say("Paper versus Paper, it's a **tie!**")
         elif 'Scissors' in message.content:
             await client.say("Scissors versus Paper, Paper **wins!** You won!")
-    elif 'Scissors' in client.content:
+    elif 'Scissors' in rps5:
         if 'Rock' in message.content:
             await client.say("Rock versus Scissors, Rock **wins!** You won!")
         elif 'Paper' in message.content:
