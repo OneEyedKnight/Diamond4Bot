@@ -155,8 +155,52 @@ async def casino(ctx):
         else:
             await client.say("It was smaller than 50. You lost.")
 
-         
-     
+@client.command(pass_context=True)
+async def rps(ctx):
+    await client.say("Say Rock, Paper or Scissors!")
+    
+    def check(m):
+        return 'Rock','Paper','Scissor'
+    
+    message = await client.wait_for_message()
+    if 'Rock' in message.content:
+        await client.say("You chose rock!")
+    elif 'Paper' in message.content:
+        await client.say("You chose paper!")
+    elif 'Scissors' in message.content:
+        await client.say("You chose scissors!")
+        
+   rps1 = random.choice("Rock","Paper","Scissors")
+   rpsdecision = await client.say(rps1)
+   rps2 = random.choice("Rock","Paper","Scissors")
+   rpsdecision2 = await client.edit_message(rpsdecision,"{}".format(rps2))
+   rps3 = random.choice("Rock","Paper","Scissors")
+   rpsdecision3 = await client.edit_message(rpsdecision2,"{}".format(rps3))
+   rps4 = random.choice("Rock","Paper","Scissors")
+   rpsdecision4 = await client.edit_message(rpsdecision3,"{}".format(rps4))
+   rps5 = random.choice("Rock","Paper","Scissors")
+
+   if 'Rock' in client.content:
+        if 'Rock' in message.content:
+            await client.say("Rock versus Rock, it's a **tie!**")
+        elif 'Paper' in message.content:
+            await client.say("Paper versus Rock, Rock **wins!** You won!")
+        elif 'Scissors' in message.content:
+            await client.say("Scissors versus Rock, Rock **wins!** You lost!")
+   elif 'Paper' in client.content:
+        if 'Rock' in message.content:
+            await client.say("Rock versus Paper, Paper **wins!** You lost!")
+        elif 'Paper' in message.content:
+            await client.say("Paper versus Paper, it's a **tie!**")
+        elif 'Scissors' in message.content:
+            await client.say("Scissors versus Paper, Paper **wins!** You won!")
+   elif 'Scissors' in client.content:     
+        if 'Rock' in message.content:
+            await client.say("Rock versus Scissors, Rock **wins!** You won!")
+        elif 'Paper' in message.content:
+            await client.say("Paper versus Scissors, Paper **wins!** You lost!")
+        elif 'Scissors' in message.content:
+            await client.say("Scissors versus Scissors, it's a **tie!**")
 
 @client.command(pass_context=True)
 async def edit(ctx):
