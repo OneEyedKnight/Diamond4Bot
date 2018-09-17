@@ -98,7 +98,7 @@ async def help(ctx):
     embed.add_field(name="!!badnumber", value="See what is your unlucky number!")
     embed.add_field(name="!!waud", value="waud stands for 'what are you doing'. See who's doing what now!")
     embed.add_field(name="!!diary", value="See other people's diary and check out what they did in the past!")
-    embed.add_field(name="!kill", value="Randomly kill someone with something!")
+    embed.add_field(name="!!kill", value="Randomly kill someone with something!")
     embed.add_field(name="!!casino", value="Try out your luck and see if the number is bigger or smaller!")
     embed.add_field(name="!!game", value="See what game you like to play the most.")
     embed.add_field(name="!!power", value="See what hidden powers you have!")
