@@ -187,14 +187,14 @@ async def rps(ctx):
             await client.say("Paper versus Rock, Rock **wins!** You won!")
         elif 'Scissors' in message.content:
             await client.say("Scissors versus Rock, Rock **wins!** You lost!")
-   elif 'Paper' in client.content:
+    elif 'Paper' in client.content:
         if 'Rock' in message.content:
             await client.say("Rock versus Paper, Paper **wins!** You lost!")
         elif 'Paper' in message.content:
             await client.say("Paper versus Paper, it's a **tie!**")
         elif 'Scissors' in message.content:
             await client.say("Scissors versus Paper, Paper **wins!** You won!")
-   elif 'Scissors' in client.content:     
+    elif 'Scissors' in client.content:
         if 'Rock' in message.content:
             await client.say("Rock versus Scissors, Rock **wins!** You won!")
         elif 'Paper' in message.content:
