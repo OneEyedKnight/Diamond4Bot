@@ -170,15 +170,15 @@ async def rps(ctx):
     elif 'Scissors' in message.content:
         await client.say("You chose scissors!")
         
-    rps1 = random.choice("Rock","Paper","Scissors")
+    rps1 = random.choice(["Rock","Paper","Scissors"])
     rpsdecision = await client.say(rps1)
-    rps2 = random.choice("Rock","Paper","Scissors")
+    rps2 = random.choice(["Rock","Paper","Scissors"])
     rpsdecision2 = await client.edit_message(rpsdecision,"{}".format(rps2))
-    rps3 = random.choice("Rock","Paper","Scissors")
+    rps3 = random.choice(["Rock","Paper","Scissors"])
     rpsdecision3 = await client.edit_message(rpsdecision2,"{}".format(rps3))
-    rps4 = random.choice("Rock","Paper","Scissors")
+    rps4 = random.choice(["Rock","Paper","Scissors"])
     rpsdecision4 = await client.edit_message(rpsdecision3,"{}".format(rps4))
-    rps5 = random.choice("Rock","Paper","Scissors")
+    rps5 = random.choice(["Rock","Paper","Scissors"])
 
     if 'Rock' in client.content:
         if 'Rock' in message.content:
