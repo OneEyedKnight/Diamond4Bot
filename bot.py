@@ -144,10 +144,10 @@ async def casino(ctx):
         else:
             await client.say("It was bigger than 50. You lost.")
    else:
-    if 'Smaller' in message.content:
-        await client.say("It was smaller than 50. You lost.")
-    else:
-        await client.say("It was smaller than 50. You won!")
+        if 'Smaller' in message.content:
+            await client.say("It was smaller than 50. You lost.")
+        else:
+            await client.say("It was smaller than 50. You won!")
 
          
      
