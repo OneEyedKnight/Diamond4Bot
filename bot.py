@@ -143,11 +143,11 @@ async def casino(ctx):
             await client.say("It was bigger than 50. You won!")
     else:
         await client.say("It was bigger than 50. You lost.")
-    else:
+    elif casinonumber5 <= 50:
         if 'Smaller' in message.content:
-        await client.say("It was smaller than 50. You lost.")
-    else:
-        await client.say("It was smaller than 50. You won!")  
+            await client.say("It was smaller than 50. You lost.") 
+        else:
+            await client.say("It was smaller than 50. You won!")  
      
 
 @client.command(pass_context=True)
