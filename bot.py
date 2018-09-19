@@ -41,7 +41,7 @@ async def cooldown(ctx):
 
 @client.command(pass_context=True)
 async def pm(ctx):
-await client.send_message(user, "o.o hello there.")
+    await client.send_message(user, "o.o hello there.")
 
 @client.command(pass_context=True)
 async def logs(ctx):
