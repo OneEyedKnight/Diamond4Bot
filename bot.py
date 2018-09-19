@@ -38,7 +38,11 @@ async def power(ctx):
 @commands.cooldown(1, 9, commands.BucketType.user)
 async def cooldown(ctx):
     cooldown = await client.say("Ok. See if this has cooldown now.")
-                    
+
+@client.command(pass_context=True)
+async def pm(ctx):
+await client.send_message(user, "o.o hello there.")
+
 @client.command(pass_context=True)
 async def logs(ctx):
     embed = discord.Embed(title="All the changelogs here!", color=0xE90FF)
