@@ -99,7 +99,6 @@ async def help(ctx):
         return '1','2','3','4'
     
     helpmessage = await client.wait_for_message()
-    if '2' in message.content:
     embedkek = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
     embed.add_field(name="Fun Commands", value="Have some fun with these!")
     embed.add_field(name="!!flip", value="A good ol' flip of the coin.")
@@ -109,9 +108,8 @@ async def help(ctx):
     embed.add_field(name="!!waud", value="waud stands for 'what are you doing'. See who's doing what now!")
     embed.add_field(name="!!diary", value="See other people's diary and check out what they did in the past!")
     embed.set_footer("Say 1,2,3 or 4 to scroll through!")
-       help2 = await client.edit_message(help1, embed=embed)
-    
-    elif '3' in message.content:
+    if '2' in message.content:
+        help2 = await client.edit_message(help1, embed=embed)
     embed3 = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
     embed.add_field(name="!!moti", value="moti stands for motivation. This command gives you a motivational message to you!")
     embed.add_field(name="!!love", value="Find a secret couple in the server!")
@@ -122,9 +120,8 @@ async def help(ctx):
     embed.add_field(name="!!wyr", value="wyr means Would You Rather. React to the emojis if you rather do this rather than that!")
     embed.add_field(name="!!yon", value="yon means Yes or No. You would be given a question, and react if you want it or not.")
     embed.set_footer("Say 1,2,3 or 4 to scroll through!")
-       help3 = await client.edit_message(help2, embed=embed)
-    
-    elif '4' in message.content:
+    elif '3' in message.content:
+        help3 = await client.edit_message(help2, embed=embed)
     embed3 = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
     embed.add_field(name="!!kill", value="Randomly kill someone with something!")
     embed.add_field(name="!!casino", value="Try out your luck and see if the number is bigger or smaller!")
@@ -132,7 +129,8 @@ async def help(ctx):
     embed.add_field(name="!!power", value="See what hidden powers you have!")
     embed.add_field(name="!!rps", value="Play Rock Paper Scissors with the bot!")
     embed.set_footer("Say 1,2,3 or 4 to scroll through!")
-      help4 = await client.edit_message(help3, embed=embed) 
+    elif '4' in message.content:
+        help4 = await client.edit_message(help3, embed=embed) 
     
 @client.command(pass_context=True)
 async def casino(ctx):
