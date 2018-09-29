@@ -1,13 +1,10 @@
 import discord
 import asyncio
-import requests
 import os
-from discord.ext.commands import Bot
 from discord.ext import commands
 import random
 
 
-Client = discord.Client()
 bot_prefix='!!'
 client = commands.Bot(command_prefix=bot_prefix)
 client.remove_command("help")
@@ -15,8 +12,8 @@ client.remove_command("help")
 @client.event
 async def on_ready():
     print("Bot Online")
-    print("Name: (Diamond4Bot)".format(client.user.name))
-    print("ID: ()".format(client.user,id))
+    print("Name: {}".format(client.user.name))
+    print("ID: ()".format(client.user.id))
     await client.change_presence(game=discord.Game(name='type !!help')  ) 
     
 @client.event
@@ -27,6 +24,8 @@ async def on_command_error(error, ctx):
                
 @client.command(pass_context=True)
 async def power(ctx):
+    """Shows you your hidden abilities!"""
+
     power = open('power.txt').read().splitlines()
     power2 = random.choice(power)
     if ctx.message.author.id == "206027308149112832":
@@ -37,16 +36,22 @@ async def power(ctx):
 @client.command(pass_context=True)
 @commands.cooldown(1, 9, commands.BucketType.user)
 async def cooldown(ctx):
+    """A test command"""
+
     cooldown = await client.say("Ok. See if this has cooldown now.")
 
 @client.command(pass_context=True)
 async def pm(ctx):
-    pm = await client.start_private_message(ctx.message.author)
-    await client.send_message(pm, "o.o hello there.")
+    """Private messages you!"""
+
+    await client.send_message(ctx.message.author, "o.o hello there.")
 
 @client.command(pass_context=True)
 async def logs(ctx):
+    """Recent changes"""
+
     embed = discord.Embed(title="All the changelogs here!", color=0xE90FF)
+    embed.add_field(name="Minor Update!", value="Made help command shorter")
     embed.add_field(name="New Command!", value="Do !!rps and play Rock Paper Scissors with the bot! Added in 17/9/2018.")
     embed.add_field(name="New Command!", value="Do !!casino and try your luck! Added in 17/9/2018.")
     embed.add_field(name="Minor Update!", value="Some commands have cooldowns to prevent spam! Added in 8/31/2019.")
@@ -62,20 +67,26 @@ async def logs(ctx):
     
 @client.command(pass_context=True)
 async def reac(ctx):
-        embed = discord.Embed(title="Going to be edited.", description="Thumbs up to update.")
-        msgtest = await client.say(embed=embed)
-        res = await client.wait_for_reaction(['👍', '👎'], message=msgtest)
-        embed2 = discord.Embed(title="Embed1", description ="embed2")
-        await client.edit_message(msgtest, embed=embed2)
+    """A test command"""
+
+    embed = discord.Embed(title="Going to be edited.", description="Thumbs up to update.")
+    msgtest = await client.say(embed=embed)
+    res = await client.wait_for_reaction(['👍', '👎'], message=msgtest)
+    embed2 = discord.Embed(title="Embed1", description ="embed2")
+    await client.edit_message(msgtest, embed=embed2)
         
 @client.command(pass_context=True)
 async def cd(ctx):
+    """A test command"""
+
     await asyncio.sleep(10)
     await client.say("Wait for 10 seconds.")
                     
 @client.command(pass_context = True)
 async def mute(ctx, member: discord.Member):
-     if ctx.message.author.server_permissions.administrator or ctx.message.author.id == '194151340090327041':
+    """Mutes a person on the server"""
+
+    if ctx.message.author.server_permissions.administrator or ctx.message.author.id == '194151340090327041':
         role = discord.utils.get(member.server.roles, name='Muted')
         await client.add_roles(member, role)
         embed=discord.Embed(title="User Muted!", description="**{0}** was muted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
@@ -86,54 +97,21 @@ async def mute(ctx, member: discord.Member):
     
 @client.command(pass_context=True)
 async def help(ctx):
+    """List of all the commands!"""
+
     embed = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
     embed.add_field(name="Help Page", value="Click the number reactions below to look at different types of commands!")
     embed.add_field(name="Bot Related Commands", value="Mess around with the bot.")
-    embed.add_field(name="!!ping",value="Check if the bot is working or not.")
-    embed.add_field(name="!!help", value="The page you are currently on.")
-    embed.set_footer("Say 1,2,3 or 4 to scroll through!")
-    help1 = await client.say(embed=embed)
     
-   
-    def check(m):
-        return '1','2','3','4'
-    
-    helpmessage = await client.wait_for_message()
-    embedkek = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
-    embed.add_field(name="Fun Commands", value="Have some fun with these!")
-    embed.add_field(name="!!flip", value="A good ol' flip of the coin.")
-    embed.add_field(name="!!roulette", value="Ask something and see who gets it.")
-    embed.add_field(name="!!number", value="See what is your lucky number!")
-    embed.add_field(name="!!badnumber", value="See what is your unlucky number!")
-    embed.add_field(name="!!waud", value="waud stands for 'what are you doing'. See who's doing what now!")
-    embed.add_field(name="!!diary", value="See other people's diary and check out what they did in the past!")
-    embed.set_footer("Say 1,2,3 or 4 to scroll through!")
-    if '2' in message.content:
-        help2 = await client.edit_message(help1, embed=embed)
-    embed3 = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
-    embed.add_field(name="!!moti", value="moti stands for motivation. This command gives you a motivational message to you!")
-    embed.add_field(name="!!love", value="Find a secret couple in the server!")
-    embed.add_field(name="!!amIgay", value="See if you are gay or not. 'P.S. Don't take it too seriously.'")
-    embed.add_field(name="!!howIkms", value ="See how you killed yourself in ridiculous ways.")
-    embed.add_field(name="!!chance", value=" Basically an 8ball. See if you have a chance of something or not.")
-    embed.add_field(name="!!future", value="See your future!")
-    embed.add_field(name="!!wyr", value="wyr means Would You Rather. React to the emojis if you rather do this rather than that!")
-    embed.add_field(name="!!yon", value="yon means Yes or No. You would be given a question, and react if you want it or not.")
-    embed.set_footer("Say 1,2,3 or 4 to scroll through!")
-    elif '3' in message.content:
-        help3 = await client.edit_message(help2, embed=embed)
-    embed3 = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
-    embed.add_field(name="!!kill", value="Randomly kill someone with something!")
-    embed.add_field(name="!!casino", value="Try out your luck and see if the number is bigger or smaller!")
-    embed.add_field(name="!!game", value="See what game you like to play the most.")
-    embed.add_field(name="!!power", value="See what hidden powers you have!")
-    embed.add_field(name="!!rps", value="Play Rock Paper Scissors with the bot!")
-    embed.set_footer("Say 1,2,3 or 4 to scroll through!")
-    elif '4' in message.content:
-        help4 = await client.edit_message(help3, embed=embed) 
-    
+    for i in client.commands():
+        embed.add_field(name=i.name, value=i.help)
+       
+   await client.say(embed=embed)
+
 @client.command(pass_context=True)
 async def casino(ctx):
+    """Win big!"""
+
     casinostart = await client.say("Bigger or smaller than 50? Say it!")
 
     def check(m):
@@ -170,6 +148,8 @@ async def casino(ctx):
 
 @client.command(pass_context=True)
 async def rps(ctx):
+    """Rock, Scissor Paper!"""
+
     await client.say("Say Rock, Paper or Scissors!")
     
     def check(m):
@@ -220,6 +200,8 @@ async def rps(ctx):
 
 @client.command(pass_context=True)
 async def edit(ctx):
+    """A test command"""
+
     edit = await client.say("Edit.")
     await client.add_reaction(edit,'2\u20e3')
     edit2 = await client.wait_for_reaction(['3\u20e3'], message=edit)
@@ -227,6 +209,7 @@ async def edit(ctx):
     
 @client.group(pass_context=True, invoke_without_command=True)
 async def yon(ctx):
+    """Yes or No?..."""
     yesornolist = open('yesorno.txt').read().splitlines()
     yesornolist2 = random.choice(yesornolist)
     yon = await client.say(" {} Choose Y or N .".format(yesornolist2))
@@ -235,6 +218,8 @@ async def yon(ctx):
     
 @yon.command(pass_context=True)
 async def add(ctx,*, string):
+    """Add's a Yes or No question"""
+
     yonopen = open("yesorno.txt", "a")
     yonopen.write("\n{}".format(string))
     yonopen.close()
@@ -243,6 +228,7 @@ async def add(ctx,*, string):
     
 @client.group(pass_context=True, invoke_without_command=True)
 async def wyr(ctx):
+    """Would you rather?..."""
     wyrlist = open('wyr.txt').read().splitlines()
     wyrlist2 = random.choice(wyrlist)
     wyr = await client.say("Would you rather {}? Choose A or B.".format(wyrlist2))
@@ -251,6 +237,7 @@ async def wyr(ctx):
     
 @wyr.command(pass_context=True)
 async def add(ctx,*, string):
+    """Add's a would your rather question"""
     wyropen = open("wyr.txt", "a")
     wyropen.write("\n{}".format(string))
     wyropen.close()
@@ -259,6 +246,8 @@ async def add(ctx,*, string):
 @client.command(pass_context=True)
 @commands.cooldown(1, 10, commands.BucketType.user)
 async def kill(ctx):
+    """Kills a user in the server"""
+
     kill = open('Deaths.txt').read().splitlines()
     death = random.choice(kill)
     victim = random.choice([x for x in ctx.message.server.members if not x.bot])
@@ -271,12 +260,23 @@ async def kill(ctx):
 @client.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def diary(ctx):
+    """Shows a random diary entry"""
+
     ContentsDiary = open('Diary.txt').read().splitlines()
     ContentsDiary2 = random.choice(ContentsDiary)
     AuthorOfDiary = random.choice([x for x in ctx.message.server.members if not x.bot])
     Day = random.randint(1,31)
-    Month = random.choice(["January", "February", "March","April","May","June","July","August","September","October","November","December"])
-    embed = discord.Embed(title='You found {}"s diary!'.format(AuthorOfDiary), description = '"Dear Diary, I,{}, {}"'.format(AuthorOfDiary, ContentsDiary2))
+    Month = random.choice(
+        ["January", "February", 
+         "March", "April",
+         "May", "June",
+         "July", "August",
+         "September", "October",
+         "November", "December"])
+    
+    embed = discord.Embed()
+    embed.title='You found {}"s diary!'.format(AuthorOfDiary) 
+    embed.description = '"Dear Diary, I,{}, {}"'.format(AuthorOfDiary, ContentsDiary2))
     embed.add_field(name="Written in",value="{}/{}/2018.".format(Day, Month))
     embed.set_image(url="https://cdn.discordapp.com/attachments/347731992227610625/480550401968701440/diary.jpg")
     await client.say(embed=embed)
@@ -284,12 +284,16 @@ async def diary(ctx):
     
 @client.command(pass_context=True)
 async def kick(ctx, user: discord.Member):
+    """Kicks a user from the server"""
+
     await client.say("Here's the boot. :boot: Bye bye, {}!".format(user.name))
     await client.kick(user)
 
 @client.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def game(ctx):
+    """Shows a list of games you like to play."""
+
     game = open('Games.txt').read().splitlines()
     games = random.choice(game)
     if ctx.message.author.id == "206027308149112832":
@@ -299,6 +303,7 @@ async def game(ctx):
 
 @client.command(pass_context=True)
 async def test(ctx):
+    """A test command"""
     await client.say('hi')
     greet = await client.wait_for_message(content='hi')
     await client.say('oo someone replied')
@@ -316,7 +321,7 @@ async def test(ctx):
     
 @client.command(pass_context = True)
 async def listban(ctx):
-    '''Gets A List Of Users Who Are No Longer With us'''
+    """Gets A List Of Users Who Are No Longer With us"""
     x = await client.get_bans(ctx.message.server)
     x = '\n'.join([y.name for y in x])
     embed = discord.Embed(title = "List of The Banned Idiots", description = x, color = 0xFFFFF)
@@ -341,17 +346,15 @@ async def purge(ctx, number):
         await client.say(config.err_mesg)
         
 @client.command(pass_context=True)
-async def roles(context):
+async def roles(ctx):
     """Lists the current roles on the server."""
-
-    roles = context.message.server.roles
-    result = "**The roles on this server are: **"
-    for role in roles:
-        result += role.name + ", "
+    
+    result = "**The roles on this server are: {}**".format(', '.join([m.name for m in ctx.message.server.roles]))
     await client.say(result)
 
 @client.command(pass_context=True)                    
 async def moti(ctx):
+    """Motivates you to do better!"""
     motivation = open('moti2.txt', encoding = "UTF-8").read().splitlines()
     motivation2 = random.choice(motivation)
     embed = discord.Embed(title='Motivational Message for You!', description = '{}'.format(motivation2))
@@ -361,6 +364,8 @@ async def moti(ctx):
 @client.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def love(ctx):
+    """Finds a secret couple on the server."""
+
     love = random.choice([x for x in ctx.message.server.members if not x.bot])
     love2 = random.choice([x for x in ctx.message.server.members if not x.bot])  
     years = random.randint(0, 20)
@@ -372,20 +377,26 @@ async def love(ctx):
     
 @client.command(pass_context=True)
 async def reco(ctx):
-    recommended = open('Reco.txt', encoding = "UTF-8").read().splitlines()
-    recommended2 = random.choice(recommended)
-    embed = discord.Embed(title='I recommend you to try out this command...', description = '**{}**'.format(recommended2))
+    """Recommends a command to use!"""
+
+    recommend = random.choice(client.commands)
+    embed = discord.Embed()
+    embed.title='I recommend you to try out this command...', description = '**{} - {}**'.format(recommend.name, recommend.help))
     embed.set_image(url="https://cdn.discordapp.com/attachments/385419071727992834/462927747149463573/download.jpg")
     await client.say(embed=embed)                       
 
-@client.command(pass_context=True)
+@client.command(pass_context=True, hidden=True)
 async def embed(ctx):
+    """A test command"""
+
     embed = discord.Embed(title='EMBED PLZ WORK', description='PLEASE MAKE THIS WORK')
     embed.set_image(url="https://cdn.discordapp.com/attachments/385419071727992834/393317821381345280/Wrong.png")
     await client.say(embed=embed)
 
 @client.command(pass_context=True)
 async def waud(ctx):
+    """Predicts what you are doing!"""
+
     waud = open('WAUD.txt').read().splitlines()
     wauds = random.choice(waud)
     wauddo = random.choice(["you are doing it right now!","you are not doing it right now, but later.","you are not doing it right now.","you don't do it at all."])
@@ -394,61 +405,114 @@ async def waud(ctx):
     
 @client.command(pass_context=True)
 async def ping(ctx):
+    """Checks to see if the bot is working"""
+
     await client.say("Pong!")
 
 @client.command(pass_context=True)
 async def flip(ctx):
+    """A good ol' flip of the coin"""
+
     flip = random.choice(["Heads","Tails","DA MIDDLE"])
     await client.say(flip)
 
 @client.command(pass_context=True)
 async def amIgay(ctx):
+    """Decides if you are gay or not. P.S Results not 100% accurate"""
+
     Areyougay = random.choice(["Maybe","YES,DUH","NOPE"])
     await client.say(Areyougay)
     
 @client.command(pass_context=True)
 async def howIkms(ctx):
-    kms = random.choice (["Jumping off from Trump's wall","Eating too much KFC","Assassinated by Kim Jong Un","Be surrounded by gay people","Killed by a goddamn clown","Having Ebola, Cancer and Depression at the same time","Be surrounded by creepers","Meeting Herobrine for the first time","Attempting to kill hackers","Being as old as 9999 years old","People calling you cringy/idiot"])
+    """How you will die. P.S results no 100% accurate"""
+
+    kms = random.choice (
+        ["Jumping off from Trump's wall",
+         "Eating too much KFC","Assassinated by Kim Jong Un",
+         "Be surrounded by gay people","Killed by a goddamn clown",
+         "Having Ebola, Cancer and Depression at the same time",
+         "Be surrounded by creepers","Meeting Herobrine for the first time",
+         "Attempting to kill hackers","Being as old as 9999 years old",
+         "People calling you cringy/idiot"])
+    
     await client.say(kms)
 
 @client.command(pass_context=True)
 async def pong(ctx):
+    """Says Ping!"""
+
     await client.say("Ping!")
 
 @client.command(pass_context=True)
 async def pingpong(ctx):
+    """Play ping-pong!"""
+
     await client.say("Pong Ping!")
 
 @client.command(pass_context=True)
 async def pongping(ctx):
+    """Says Ping Pong Pung!"""
+
     await client.say("Ping Pong Pung!")
 
 @client.command(pass_context=True)
 async def pung(ctx):
+    """Says pung"""
+
     await client.say("What do you expect me to say, huh? PINGPONGPUNGPUN?! WHAT THE HELL BRUH")
 
 @client.command(pass_context=True)
 async def roulette(ctx,*, string):
+    """Picks a random user!"""
+
     roulette = random.choice([x for x in ctx.message.server.members if not x.bot])
     await client.say("The winner of ``%s`` is ``%s``" % (string, roulette.display_name))
     
 @client.command(pass_context=True)
 async def chance(ctx):
-    luck = random.choice(["Try again later","Maybe","NOPE","50% chance","Definitely not","Yes, definitely","It depends on your fate","Dunno, maybe ask the owner of this bot?"])
+    """The chance of something happening."""
+    luck = random.choice(
+        ["Try again later",
+         "Maybe","NOPE",
+         "50% chance",
+         "Definitely not",
+         "Yes, definitely",
+         "It depends on your fate",
+         "Dunno, maybe ask the owner of this bot?"])
+    
     await client.say(luck)
 
 @client.command(pass_context=True)
 async def future(ctx):
-    future = random.choice (["In the future, you may die early.","In the future,you may find a cute girl but didn't have a stable family.","In the future, you may found a rich girl, but she kept arguing with you. A few days later, you divorced her, and got depression until you got another relationship.","In the future, you found a braniac girl, but she is loyal to you and you got married happily. You got a good family and died in the age of 100.","In the future, you got your dream job, got a good wife, and got 2 good kids. You died in the age of 120.","In the future, you got your dream job, but your boss wants to fire you asap, so after working for a year, you got fired for no reason.","In the future, you didn't got your dream job, but the salary is high and your co-workers and your boss treats you like a family. You found love there too, and died in the age of 90 with happiness.","In the future,you won the lottery, and you earned 1$.","In the future, you won the lottery of 1 million dollars.","In the future, you bought a ticket for the lottery, but unluckily you lost.","In the future, you were forced to be in war. You died in the battlefield, but hey at least your name will be famous...","In the future, you died pretty early because you fell from a mountain.","`In the future, you met some famous youtubers, and they chose you as their sidekick.","In the future, you got what normal people do.A normal job, a normal family and a normal life. You died because of being too normal.","In the future, you became a millionaire and because of that, you donated a heck ton of money to the needy. In fact, you donated A LOT until you became famous and loved by everyone.",])                               
+    """Shows you your future"""
+
+    future = random.choice (["In the future, you may die early.",
+                             "In the future, you may find a cute girl but didn't have a stable family.",
+                             "In the future, you may found a rich girl, but she kept arguing with you. A few days later, you divorced her, and got depression until you got another relationship.",
+                             "In the future, you found a braniac girl, but she is loyal to you and you got married happily. You got a good family and died in the age of 100.",
+                             "In the future, you got your dream job, got a good wife, and got 2 good kids. You died in the age of 120.",
+                             "In the future, you got your dream job, but your boss wants to fire you asap, so after working for a year, you got fired for no reason.",
+                             "In the future, you didn't got your dream job, but the salary is high and your co-workers and your boss treats you like a family. You found love there too, and died in the age of 90 with happiness.",
+                             "In the future,you won the lottery, and you earned 1$.","In the future, you won the lottery of 1 million dollars.",
+                             "In the future, you bought a ticket for the lottery, but unluckily you lost.","In the future, you were forced to be in war. You died in the battlefield, but hey at least your name will be famous...",
+                             "In the future, you died pretty early because you fell from a mountain.",
+                             "`In the future, you met some famous youtubers, and they chose you as their sidekick.",
+                             "In the future, you got what normal people do. A normal job, a normal family and a normal life. You died because of being too normal.",
+                             "In the future, you became a millionaire and because of that, you donated a heck ton of money to the needy. In fact, you donated A LOT until you became famous and loved by everyone."])                               
     await client.say(future)
     
 @client.command(pass_context=True)
 async def number(ctx):
+    """Picks a lucky number!"""
+
     luck = random.randint(0, 100)
     await client.say('Your lucky number for today is ``{0}``! Go use that number and win good stuff!'.format(luck))
 
 @client.command(pass_context=True)
 async def badnumber(ctx):
+    """Picks a unlucky number!"""
+
     badnumber = random.randint(0,100)
     await client.say('Your unlucky number for today is ``{0}``! Try not to use this number or you will face the consequences...'.format(badnumber))
     
