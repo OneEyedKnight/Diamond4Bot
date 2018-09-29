@@ -91,12 +91,15 @@ async def help(ctx):
     embed.add_field(name="Bot Related Commands", value="Mess around with the bot.")
     embed.add_field(name="!!ping",value="Check if the bot is working or not.")
     embed.add_field(name="!!help", value="The page you are currently on.")
+    embed.set_footer("Say 1,2,3 or 4 to scroll through!")
     help1 = await client.say(embed=embed)
-    await client.add_reaction(help1, '1\u20e3')
-    await client.add_reaction(help1,'2\u20e3')
-    await client.add_reaction(help1,'3\u20e3')
-    await client.add_reaction(help1, '4\u20e3')
-    helpreaction2 = await client.wait_for_reaction(['2\u20e3'], message=help1)
+    
+   
+    def check(m):
+        return '1','2','3','4'
+    
+    helpmessage = await client.wait_for_message()
+    if '2' in message.content:
     embedkek = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
     embed.add_field(name="Fun Commands", value="Have some fun with these!")
     embed.add_field(name="!!flip", value="A good ol' flip of the coin.")
@@ -105,8 +108,10 @@ async def help(ctx):
     embed.add_field(name="!!badnumber", value="See what is your unlucky number!")
     embed.add_field(name="!!waud", value="waud stands for 'what are you doing'. See who's doing what now!")
     embed.add_field(name="!!diary", value="See other people's diary and check out what they did in the past!")
-    help2 = await client.edit_message(help1, embed=embed)
-    helpreaction3 = await client.wait_for_reaction(['3\u20e3'], message=help2)
+    embed.set_footer("Say 1,2,3 or 4 to scroll through!")
+       help2 = await client.edit_message(help1, embed=embed)
+    
+    elif '3' in message.content:
     embed3 = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
     embed.add_field(name="!!moti", value="moti stands for motivation. This command gives you a motivational message to you!")
     embed.add_field(name="!!love", value="Find a secret couple in the server!")
@@ -116,15 +121,18 @@ async def help(ctx):
     embed.add_field(name="!!future", value="See your future!")
     embed.add_field(name="!!wyr", value="wyr means Would You Rather. React to the emojis if you rather do this rather than that!")
     embed.add_field(name="!!yon", value="yon means Yes or No. You would be given a question, and react if you want it or not.")
-    help3 = await client.edit_message(help2,embed=embed)
-    helpreaction4 = await client.wait_for_reaction(['4\u20e3'], message=help3)
+    embed.set_footer("Say 1,2,3 or 4 to scroll through!")
+       help3 = await client.edit_message(help2, embed=embed)
+    
+    elif '4' in message.content:
     embed3 = discord.Embed(title="Diamond4Bot", description="A fun bot made by Diamond4luck#4795.")
     embed.add_field(name="!!kill", value="Randomly kill someone with something!")
     embed.add_field(name="!!casino", value="Try out your luck and see if the number is bigger or smaller!")
     embed.add_field(name="!!game", value="See what game you like to play the most.")
     embed.add_field(name="!!power", value="See what hidden powers you have!")
     embed.add_field(name="!!rps", value="Play Rock Paper Scissors with the bot!")
-    help4 = await client.edit_message(help3, embed=embed) 
+    embed.set_footer("Say 1,2,3 or 4 to scroll through!")
+      help4 = await client.edit_message(help3, embed=embed) 
     
 @client.command(pass_context=True)
 async def casino(ctx):
